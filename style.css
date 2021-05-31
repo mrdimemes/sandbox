@@ -3,6 +3,7 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
+  cursor: default;
 }
 
 a {
@@ -18,6 +19,7 @@ li {
   margin: 0 auto;
 }
 
+
 /* Header */
 header {
   width: 100%;
@@ -26,6 +28,7 @@ header {
   align-items: center;
   background: #000;
   padding-top: 46px;
+  border: none;
 }
 
 header .header__logo {
@@ -34,6 +37,11 @@ header .header__logo {
   font-size: 24px;
   font-weight: 800;
   margin-left: 12%;
+  transition: 0.5s;
+}
+
+header .header__logo:hover {
+  color: #fcac45;
 }
 
 header nav {
@@ -47,6 +55,7 @@ header nav a {
   font-weight: 800;
   margin-left: 35px;
   padding-bottom: 7px;
+  transition: 0.1s;
 }
 
 header nav a:hover {
@@ -62,7 +71,7 @@ header nav a.icon {
 section.welcome {
     background: #000;
     text-align: center;
-    padding-top: 205px;
+    padding-top: 200px;
     padding-bottom: 418px;
 }
 
@@ -72,9 +81,7 @@ section.welcome h1 {
   font-size: 44px;
   font-weight: lighter;
   color: #999999;
-  letter-spacing: -2px;
-  line-height: 45px;
-  margin-bottom: 9px;
+  margin-bottom: 2px;
 }
 
 section.welcome h1 span {
@@ -121,8 +128,6 @@ section.about .wrapper .about_right h2 {
   color: #333333;
   font-size: 34px;
   font-weight: lighter;
-  line-height: 45px;
-  letter-spacing: -1px;
 }
 
 section.about .wrapper .about_right h2 span {
@@ -141,13 +146,13 @@ section.about .wrapper .about_right h2::after {
 }
 
 section.about .wrapper .about_right p {
-  margin-top: 15px;
+  margin-top: 26px;
   color: #666666;
   font-size: 18px;
 }
 
 section.about .wrapper .about_right ul {
-  margin-top: 50px;
+  margin-top: 39px;
   color: #666666;
   font-size: 16px;
   font-style: italic;
@@ -194,6 +199,7 @@ section.team .wrapper .cards {
   justify-content: space-between;
   text-align: center;
   padding-bottom: 187px;
+  align-items: center;
 }
 
 section.team .wrapper .cards .card {
@@ -207,6 +213,12 @@ section.team .wrapper .cards .card .photo{
   height: 125px;
   border-radius: 50%;
   margin-bottom: 10px;
+  transition: 0.5s;
+}
+
+section.team .wrapper .cards .card:hover .photo{
+  width: 150px;
+  height: 150px;
 }
 
 section.team .wrapper .cards .card .name {
@@ -214,6 +226,11 @@ section.team .wrapper .cards .card .name {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 1px;
+  transition: 0.5s;
+}
+
+section.team .wrapper .cards .card:hover .name {
+  color: #fcac45;
 }
 
 section.team .wrapper .cards .card .position {
@@ -221,6 +238,11 @@ section.team .wrapper .cards .card .position {
   font-size: 15px;
   font-weight: lighter;
   margin-bottom: 31px;
+  transition: 0.5s;
+}
+
+section.team .wrapper .cards .card:hover .position {
+  color: #fcac45;
 }
 
 section.team .wrapper .cards .card .quote {
@@ -246,7 +268,7 @@ section.services .wrapper h2::after {
   background-color: #fcac45;
   width: 100px;
   height: 4px;
-  margin: 17px auto 60px auto;
+  margin: 17px auto 59px auto;
 }
 
 section.services .wrapper p {
@@ -261,6 +283,7 @@ section.services .wrapper .cards {
   display: grid;
   grid-template-columns: 23% 23% 23% 23%;
   justify-content: space-between;
+  align-items: center;
   text-align: center;
   margin-bottom: 96px;
 }
@@ -274,6 +297,15 @@ section.services .wrapper .cards .card .icon {
   height: 125px;
   border-radius: 50%;
   border: 4px solid #fcac45;
+  margin-bottom: 16px;
+  transition: 0.5s;
+}
+
+section.services .wrapper .cards .card:hover .icon {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid #ff9900;
   margin-bottom: 16px;
 }
 
@@ -299,6 +331,13 @@ section.services .wrapper .cards .card .activity {
   text-transform: uppercase;
   color: #333333;
   margin-bottom: 10px;
+  transition: 0.5s;
+}
+
+section.services .wrapper .cards .card:hover .activity {
+  color: #000000;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 
 section.services .wrapper .cards .card .description {
@@ -307,6 +346,11 @@ section.services .wrapper .cards .card .description {
   color: #333333;
   font-style: normal;
   margin-bottom: 0;
+  transition: 0.5s;
+}
+
+section.services .wrapper .cards .card:hover .description {
+  color: #000000;
 }
 
 
@@ -350,6 +394,10 @@ section.clients .wrapper .box img {
   display: block;
 }
 
+section.clients .wrapper .box img:hover {
+  opacity: 0.7;
+}
+
 /* Works section */
 section.works .wrapper h2 {
   text-transform: uppercase;
@@ -370,7 +418,7 @@ section.works .wrapper h2::after {
   background-color: #fcac45;
   width: 100px;
   height: 4px;
-  margin: 17px auto 60px auto;
+  margin: 17px auto 52px auto;
 }
 
 section.works .wrapper p {
@@ -378,7 +426,7 @@ section.works .wrapper p {
   text-align: center;
   font-size: 16px;
   font-style: italic;
-  margin-bottom: 180px;
+  margin-bottom: 172px;
 }
 
 section.works .wrapper .cards {
@@ -393,6 +441,12 @@ section.works .wrapper .cards .card img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  transition: 0.5s;
+}
+
+section.works .wrapper .cards .card:hover img {
+  opacity: 0.7;
+  cursor: pointer;
 }
 
 
@@ -419,7 +473,7 @@ section.testimonials .wrapper h2::after {
   background-color: #fcac45;
   width: 100px;
   height: 4px;
-  margin: 17px auto 107px auto;
+  margin: 17px auto 113px auto;
 }
 
 section.testimonials .wrapper .testimonial .text {
@@ -428,14 +482,14 @@ section.testimonials .wrapper .testimonial .text {
   text-transform: uppercase;
   color: #fff;
   text-align: center;
-  margin-bottom: 45px;
+  margin-bottom: 41px;
 }
 
 section.testimonials .wrapper .testimonial .autor {
   font-size: 18px;
   color: #999999;
   text-align: center;
-  padding-bottom: 175px;
+  padding-bottom: 170px;
 }
 
 section.testimonials .wrapper .testimonial .autor span {
@@ -455,7 +509,7 @@ section.contact .wrapper h2 {
   font-weight: bold;
   font-size: 44px;
   color: #333333;
-  margin-top: 54px;
+  padding-top: 84px;
 }
 
 section.contact .wrapper h2::after {
@@ -464,7 +518,7 @@ section.contact .wrapper h2::after {
   background-color: #fcac45;
   width: 100px;
   height: 4px;
-  margin: 17px auto 107px auto;
+  margin: 17px auto 52px auto;
 }
 
 section.contact .wrapper p {
@@ -472,7 +526,7 @@ section.contact .wrapper p {
   font-style: italic;
   color: #666666;
   text-align: center;
-  margin-bottom: 100px;
+  margin-bottom: 90px;
 }
 
 section.contact .wrapper .contact-form .name-email-part {
@@ -497,7 +551,8 @@ section.contact .wrapper .contact-form input {
   height: 40px;
   box-sizing: border-box;
   border: 1px solid #999999;
-  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 6px;
   font-size: 14px;
 }
 
@@ -505,7 +560,7 @@ section.contact .wrapper .contact-form label {
   display: block;
   color: #666666;
   font-size: 14px;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
 section.contact .wrapper .contact-form textarea {
@@ -535,6 +590,13 @@ section.contact .wrapper .contact-form #submit-btn {
   font-weight: bold;
   color: #ffffff;
   float: right;
+  transition: 0.5s;
+}
+
+section.contact .wrapper .contact-form #submit-btn:hover {
+  cursor: pointer;
+  color: #000;
+  border: 1px solid #000;
 }
 
 section.contact .wrapper .contact-form {
@@ -555,6 +617,15 @@ footer .wrapper .footer-icons {
   margin-right: auto;
   display: flex;
   justify-content: space-between;
+}
+
+footer .wrapper .footer-icons img {
+  transition: 0.2s;
+}
+
+footer .wrapper .footer-icons img:hover {
+  opacity: 0.7;
+  cursor: pointer;
 }
 
 
@@ -629,9 +700,11 @@ footer .wrapper .footer-icons {
 
   section.about .wrapper .about_right p {
     margin-top: 98px;
+    font-style: italic;
   }
 
   section.about .wrapper .about_right ul {
+    font-size: 18px;
     display: inline-block;
     padding-left: auto;
     padding-right: auto;
@@ -657,6 +730,11 @@ footer .wrapper .footer-icons {
     height: 200px;
     border-radius: 50%;
     margin-bottom: 16px;
+  }
+
+  section.team .wrapper .cards .card:hover .photo{
+    width: 200px;
+    height: 200px;
   }
 
 
