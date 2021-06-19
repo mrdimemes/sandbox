@@ -70,8 +70,11 @@ body {
   color: #00e0d0;
   display: inline-block;
   border: 1px solid #00e0d0;
-  padding: 8px 15px;
+  padding-top: 10px;
+  padding-bottom: 8px;
+  width: 120px;
   border-radius: 1px;
+  text-align: center;
 }
 
 .slider {
@@ -387,6 +390,7 @@ body {
 }
 
 .team .button {
+  width: 140px;
   margin-bottom: 69px;
 }
 
@@ -550,4 +554,60 @@ body {
 
 .people-talk .card-label {
   margin-bottom: 5px;
+}
+
+
+
+
+
+.form-clients-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 62px;
+  margin-bottom: 70px;
+}
+
+
+
+/* Contact */
+
+.contact {
+  margin: 0 10px;
+}
+
+.contact .section-label {
+  color: #413d4b;
+  margin-bottom: 29px;
+}
+
+.contact__form__field {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 45px;
+  border: 1px solid #e5e5e5;
+  margin-bottom: 21px;
+  padding-left: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.contact__form__field::placeholder {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: #a09ea5;
+}
+
+.contact__form__massage {
+  resize: none;
+  height: 200px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.contact__form__button {
+  background-color: #ffffff;
+  width: 120px;
 }
