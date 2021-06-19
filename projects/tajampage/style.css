@@ -611,3 +611,30 @@ body {
   background-color: #ffffff;
   width: 120px;
 }
+
+
+
+/* Clients */
+
+.clients {
+  margin-left: 90px;
+  margin-right: 10px;
+}
+
+.clients .section-label {
+  color: #413d4b;
+  margin-bottom: 29px;
+}
+
+.clients__logos {
+  display: grid;
+  grid-template-columns: 160px 160px;
+  grid-column-gap: 80px;
+  grid-row-gap: 50px;
+}
+
+.clients__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
