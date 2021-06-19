@@ -17,10 +17,12 @@ body {
 
 .card-label {
   font-weight: 900;
+  text-transform: uppercase;
 }
 
 .card-sublalel {
   font-size: 13px;
+  text-transform: uppercase;
 }
 
 .section-label {
@@ -178,7 +180,7 @@ body {
   border: 1px solid #bab9bc;
   margin: 0 2.5px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.5s;
 }
 
 .slider-1 .slider__marker.active {
@@ -188,13 +190,15 @@ body {
 
 .slider-1 .slider__item {
   visibility: hidden;
+  opacity: 0;
   position: absolute;
   top: 153px;
-  transition: 0.3s;
+  transition: 0.5s;
 }
 
 .slider-1 .slider__item.active {
   visibility: visible;
+  opacity: 1;
 }
 
 
@@ -234,4 +238,268 @@ body {
 
 .about__text .button {
   margin-top: 16px;
+}
+
+.about__video {
+  text-align: center;
+}
+
+.about__video__play-button {
+  width: 100px;
+  height: 100px;
+  padding-top: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  }
+
+.about__video__invite {
+  font-size: 16px;
+  font-weight: 900;
+  text-transform: uppercase;
+  padding-top: 27px;
+  padding-bottom: 199px;
+}
+
+
+
+/* Expertise */
+
+.expertise {
+  text-align: center;
+}
+
+.expertise .section-label {
+  color: #413d4b;
+  padding-top: 62px;
+  padding-bottom: 7px;
+}
+
+.expertise .section-subtext {
+  color: #78777b;
+}
+
+.expertise .section-subtext::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 2px;
+  background-color: #c6c4c9;
+  margin-top: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 80px;
+}
+
+.expertise__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding-bottom: 21px;
+}
+
+.expertise__card__icon {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.expertise__card {
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.expertise__card .card-label {
+  color: #413d4b;
+}
+
+.expertise__card p {
+  color: #7a7a7a;
+  line-height: 22px;
+  margin-top: 17px;
+  margin-bottom: 76px;
+}
+
+
+
+/* Team */
+
+.team {
+  text-align: center;
+}
+
+.team .section-label {
+  padding-top: 63px;
+  padding-bottom: 7px;
+}
+
+.team .section-subtext {
+  color: #f9f9f9;
+}
+
+.team .section-subtext::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 2px;
+  background-color: #655c80;
+  margin-top: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 47px;
+}
+
+.team__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-bottom: 68px;
+}
+
+.team__card {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.team__card__photo {
+  width: 100%;
+  padding-bottom: 100%;
+  background-color: #f5f4f7;
+}
+
+.team__card__text {
+  border: 1px solid #837e97;
+}
+
+.team__card .card-label {
+  padding-top: 16px;
+  padding-bottom: 5px;
+}
+
+.team__card .card-sublabel {
+  color: #bbbac3;
+  padding-bottom: 24px;
+}
+
+.team__invite {
+  color: #f3f3f3;
+  margin-bottom: 25px;
+}
+
+.team .button {
+  margin-bottom: 69px;
+}
+
+
+
+/* Works */
+
+.works {
+  text-align: center;
+}
+
+.works__header {
+  padding: 62px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #413d4b;
+}
+
+.works__header__link {
+  display: flex;
+  align-items: center;
+}
+
+.works__header__link img {
+  padding-left: 10px;
+}
+
+.works__grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: 200px;
+}
+
+.works__grid-item {
+  width: 100%;
+  height: 100%;
+}
+
+.works__grid-item-1 {background-color: #b6b6b6;}
+.works__grid-item-2 {background-color: #acacac;}
+.works__grid-item-3 {background-color: #a1a1a1;}
+.works__grid-item-4 {background-color: #8a8a8a;}
+.works__grid-item-5 {background-color: #b6b6b6;}
+.works__grid-item-6 {background-color: #a4a4a4;}
+.works__grid-item-7 {background-color: #a4a4a4;}
+.works__grid-item-8 {background-color: #b6b6b6;}
+.works__grid-item-9 {background-color: #8a8a8a;}
+.works__grid-item-10 {background-color: #a1a1a1;}
+.works__grid-item-11 {background-color: #acacac;}
+.works__grid-item-12 {background-color: #b6b6b6;}
+
+.works .button {
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+
+
+
+/* People-talk */
+
+.people-talk .slider {
+  position: relative;
+  height: 500px;
+}
+
+.people-talk .slider .quotes {
+  font-family: 'Playfair Display', serif;
+  font-size: 100px;
+  position: absolute;
+  top: 62px;
+  right: 0;
+  left: 0;
+}
+
+.people-talk .slider__markers {
+  position: absolute;
+  bottom: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.people-talk .slider__markers {
+  position: absolute;
+  bottom: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.people-talk .slider__arrow {
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.people-talk .slider__marker {
+  width: 45px;
+  height: 45px;
+  margin-left: 7px;
+  margin-right: 7px;
+}
+
+.people-talk .slider__marker.active {
+  width: 70px;
+  height: 70px;
+}
+
+.people-talk .slider__marker img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 }
