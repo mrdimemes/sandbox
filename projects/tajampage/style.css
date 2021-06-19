@@ -505,12 +505,18 @@ body {
   width: 45px;
   height: 45px;
   margin: 12.5px 7px;
+  opacity: 1;
+  transition: 0.5s;
 }
 
 .people-talk .slider__marker.active {
   width: 70px;
   height: 70px;
   margin: 0 7px;
+}
+
+.people-talk .slider__marker.processing {
+  opacity: 0;
 }
 
 .people-talk .slider__marker img {
