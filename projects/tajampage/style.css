@@ -113,7 +113,11 @@ body {
 }
 
 .header__logo__image {
+  width: 44px;
+  height: 50px;
   margin: 0 10px;
+  background: linear-gradient(0, #00e0d0, #4aa3cc);
+  border-radius: 50%;
 }
 
 .header__logo__company-name {
@@ -220,8 +224,12 @@ body {
   align-items: center;
 }
 
-.about__logo img {
+.about__logo div {
   margin-right: 3.75%;
+  width: 235px;
+  height: 229px;
+  background: linear-gradient(0, #00e0d0, #4aa3cc);
+  border-radius: 50%;
 }
 
 .about__text {
@@ -663,7 +671,11 @@ body {
 }
 
 .footer__logo__image {
+  width: 44px;
+  height: 50px;
   margin: 0 10px;
+  background: linear-gradient(0, #00e0d0, #4aa3cc);
+  border-radius: 50%;
 }
 
 .footer__logo__company-name {
