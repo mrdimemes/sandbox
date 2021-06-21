@@ -1,4 +1,20 @@
 
+/* header burger menu interaction */
+
+var headerBurger = document.querySelector(".header__burger");
+var headerNav = document.querySelector(".header__nav");
+var headerNavBackground = document.querySelector(".header__nav-background");
+
+function toggleHeaderBurger() {
+  headerNav.classList.toggle("active");
+  headerBurger.classList.toggle("active");
+  headerNavBackground.classList.toggle("active");
+}
+
+headerBurger.addEventListener("click", toggleHeaderBurger);
+
+
+
 /* slider-1 interaction */
 
 var sliderOne = document.querySelector(".slider-1");
