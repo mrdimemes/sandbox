@@ -38,6 +38,13 @@ body {
 }
 
 
+@media screen and (max-width: 768px) {
+  .section-label {
+    font-size: 32px;
+  }
+}
+
+
 
 /* Subclasses */
 
@@ -85,6 +92,7 @@ body {
   text-align: center;
   position: relative;
 }
+
 
 @media screen and (max-width: 1024px) {
   .wrapper {
@@ -244,6 +252,7 @@ body {
     transform: rotate(135deg);
   }
 }
+
 
 @media screen and (max-width: 768px) {
   .header__logo {
@@ -456,6 +465,63 @@ body {
   padding-bottom: 199px;
   cursor: default;
 }
+
+
+@media screen and (max-width: 768px) {
+  .about__grid {
+    display: block;
+    padding-top: 50px;
+  }
+
+  .about__logo {
+    display: none;
+  }
+
+  .about__text {
+    margin: 0 20px;
+    text-align: center;
+  }
+
+  .about__text .section-label {
+    padding-bottom: 34px;
+  }
+
+  .about__text p {
+    text-align: justify;
+    font-size: 16px;
+    line-height: 28px;
+    padding: 13.5px 0;
+  }
+
+  .about__text .button {
+    margin-top: 16px;
+  }
+
+  .about__video {
+    text-align: center;
+    position: relative;
+  }
+
+  .about__video__play-button {
+    width: 100px;
+    height: 100px;
+    padding-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    position: relative;
+    }
+
+  .about__video__invite {
+    font-size: 16px;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding-top: 27px;
+    padding-bottom: 199px;
+    cursor: default;
+  }
+}
+
 
 
 
