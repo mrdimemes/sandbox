@@ -55,7 +55,6 @@ body {
   margin: 0 auto;
   position: relative;
   z-index: 10;
-  overflow-x: hidden;
 }
 
 .background-image {
@@ -95,6 +94,14 @@ body {
 @media screen and (max-width: 768px) {
   .wrapper {
     width: 100%;
+  }
+
+  .button {
+    font-family: 'Hammersmith One', sans-serif;
+    font-size: 24px;
+    padding-top: 12px;
+    padding-bottom: 10px;
+    width: 200px;
   }
 }
 
@@ -243,6 +250,18 @@ body {
     z-index: 100;
   }
 
+  .header__logo__image {
+    margin-left: 20px;
+  }
+
+  .header__logo__company-name {
+    font-weight: 300;
+  }
+
+  .header__burger {
+    margin-right: 20px;
+  }
+
   .header__nav {
     top: -350px;
     flex-direction: column;
@@ -257,15 +276,15 @@ body {
   .header__nav__link {
     font-size: 22px;
     margin-bottom: 20px;
-    margin-left: 65px;
+    margin-left: 75px;
   }
 
   .header__nav-background {
     display: block;
     position: absolute;
     top: 0;
-    left: -250px;
-    width: 250px;
+    left: -270px;
+    width: 270px;
     height: 100vh;
     background-color: #000;
     z-index: 20;
@@ -343,6 +362,33 @@ body {
   visibility: visible;
   opacity: 1;
 }
+
+
+@media screen and (max-width: 768px) {
+  .slider-1 {
+    margin: 0 20px;
+  }
+
+  .slider-1 p {
+    margin-bottom: 50px;
+    line-height: 28px;
+    font-size: 16px;
+    text-align: justify;
+    max-height: 170px;
+    overflow: hidden;
+  }
+
+  .slider-1 .slider__marker {
+    width: 14px;
+    height: 14px;
+    margin: 0 4px;
+  }
+
+  .slider-1 .slider__item {
+    top: 50px;
+  }
+}
+
 
 
 
