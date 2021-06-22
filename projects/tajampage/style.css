@@ -826,6 +826,40 @@ body {
   margin-bottom: 70px;
 }
 
+@media screen and (max-width: 768px) {
+  .works__header {
+    padding-top: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 58px;
+    flex-direction: column;
+  }
+
+  .works__header .section-label {
+    margin-bottom: 10px;
+  }
+
+  .works__header__link {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .works__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .works__grid-item-7 {display: none;}
+  .works__grid-item-8 {display: none;}
+  .works__grid-item-9 {display: none;}
+  .works__grid-item-10 {display: none;}
+  .works__grid-item-11 {display: none;}
+  .works__grid-item-12 {display: none;}
+
+  .works .button {
+    margin-top: 62px;
+    margin-bottom: 62px;
+  }
+}
+
 
 
 /* People-talk */
