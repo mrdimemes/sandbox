@@ -1092,6 +1092,7 @@ body {
 @media screen and (max-width: 768px) {
   .contact {
     margin: 0 20px;
+    text-align: center;
   }
 
   .contact .section-label {
@@ -1129,9 +1130,17 @@ body {
   }
 
   .contact__form__button {
+    margin-top: 35px;
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .contact__form__button {
     width: 100%;
   }
 }
+
 
 
 
