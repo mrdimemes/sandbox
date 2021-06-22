@@ -1366,3 +1366,139 @@ body {
 .footer__copyright {
   text-align: right;
 }
+
+@media screen and (max-width: 1024px) {
+  
+}
+
+@media screen and (max-width: 768px) {
+  .footer__grid {
+    display: block;
+    padding: 60px 20px;
+  }
+
+  .footer__grid__item {
+    margin: 0;
+  }
+
+  .footer__logo {
+    display: none;
+  }
+
+  .footer__text {
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-align: justify;
+  }
+
+  .footer__links {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .footer__grid__item h3 {
+    display: none;
+  }
+
+  .footer__grid__item .address-icon {
+    top: 25px;
+  }
+
+  .footer__grid__item .phone-icon {
+    top: auto;
+    bottom: 3px;
+  }
+
+  .footer__grid__item .footer__address {
+    padding-top: 25px;
+    padding-bottom: 10px;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: justify;
+  }
+
+  .footer__grid__item .footer__phone {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .footer__form {
+    margin-top: 20px;
+  }
+
+  .footer__form__field {
+    width: 72.414%;
+    padding-left: 15px;
+    padding-right: 15px;
+    }
+
+  .footer__form__field::placeholder {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .footer__form__button {
+    width: 24.138%;
+  }
+
+  .footer__social-media {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .footer__social-media__link {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 4px;
+    margin-left: 4px;
+  }
+
+  .footer__copyright {
+    text-align: center;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .footer__text {
+    margin-bottom: 20px;
+  }
+
+  .footer__links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer__link {
+    padding-top: 5px;
+  }
+
+  .footer__form {
+    flex-direction: column;
+  }
+
+  .footer__form__field {
+    width: 100%;
+    margin-bottom: 8px;
+    }
+
+  .footer__form__button {
+    width: 100%;
+  }
+
+  .footer__social-media {
+    display: grid;
+    grid-template-columns: repeat(3, 37px);
+    justify-content: center;
+    grid-row-gap: 8px;
+    grid-column-gap: 8px;
+  }
+
+  .footer__social-meadia__link {
+    margin: 0;
+  }
+}
