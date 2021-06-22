@@ -860,6 +860,16 @@ body {
   }
 }
 
+@media screen and (max-width: 480px) {
+  .works__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .works__grid-item-4 {display: none;}
+  .works__grid-item-5 {display: none;}
+  .works__grid-item-6 {display: none;}
+}
+
 
 
 /* People-talk */
