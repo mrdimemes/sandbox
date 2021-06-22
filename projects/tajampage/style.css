@@ -1368,7 +1368,76 @@ body {
 }
 
 @media screen and (max-width: 1024px) {
-  
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "a b"
+      "c c";
+    grid-column-gap: 40px;
+    grid-row-gap: 40px;
+  }
+
+  .footer__grid__item {
+    margin: 0;
+    position: relative;
+  }
+
+  .footer__grid__item:last-child {
+    grid-area: c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer__grid__item:last-child h3 {
+    display: none;
+  }
+
+  .footer__logo {
+    display: none;
+  }
+
+  .footer__text {
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-align: justify;
+  }
+
+  .footer__grid__item h3 {
+    padding-top: 3px;
+  }
+
+  .footer__grid__item .address-icon {
+    top: 52px;
+  }
+
+  .footer__grid__item .phone-icon {
+    top: auto;
+    bottom: 3px;
+  }
+
+  .footer__grid__item .footer__address {
+    padding-top: 30px;
+    padding-bottom: 10px;
+    line-height: 20px;
+    text-align: justify;
+  }
+
+  .footer__grid__item .footer__phone {
+    line-height: 20px;
+  }
+
+  .footer__form {
+    width: 290px;
+    margin: 0;
+  }
+
+  .footer__social-media__link {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 4px;
+    margin-right: 4px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -1377,20 +1446,13 @@ body {
     padding: 60px 20px;
   }
 
-  .footer__grid__item {
-    margin: 0;
-  }
-
-  .footer__logo {
-    display: none;
+  .footer__grid__item:last-child {
+    display: block;
   }
 
   .footer__text {
     font-size: 14px;
     line-height: 20px;
-    margin-top: 0;
-    margin-bottom: 25px;
-    text-align: justify;
   }
 
   .footer__links {
@@ -1406,26 +1468,18 @@ body {
     top: 25px;
   }
 
-  .footer__grid__item .phone-icon {
-    top: auto;
-    bottom: 3px;
-  }
-
   .footer__grid__item .footer__address {
     padding-top: 25px;
-    padding-bottom: 10px;
     font-size: 14px;
-    line-height: 20px;
-    text-align: justify;
   }
 
   .footer__grid__item .footer__phone {
     font-size: 14px;
-    line-height: 20px;
   }
 
   .footer__form {
     margin-top: 20px;
+    width: 100%;
   }
 
   .footer__form__field {
@@ -1448,13 +1502,6 @@ body {
     justify-content: center;
     margin-top: 20px;
     margin-bottom: 20px;
-  }
-
-  .footer__social-media__link {
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-right: 4px;
-    margin-left: 4px;
   }
 
   .footer__copyright {
