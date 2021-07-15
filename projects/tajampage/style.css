@@ -1222,6 +1222,10 @@ body {
   align-items: center;
 }
 
+.works__header__link span {
+  color: #413d4b;
+}
+
 .works__header__link img {
   padding-left: 10px;
 }
