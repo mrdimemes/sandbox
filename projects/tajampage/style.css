@@ -274,6 +274,21 @@ body {
   }
 }
 
+@media screen and (max-height: 530px) and (max-width: 1024px) {
+  .header__nav.active {
+    top: 80px;
+  }
+}
+
+@media screen and (max-height: 455px) and (max-width: 1024px) {
+  .header__nav.active {
+    top: 70px;
+  }
+
+  .header__nav__link {
+    font-size: 16px;
+  }
+}
 
 @media screen and (max-width: 768px) {
   .header__logo {
@@ -421,11 +436,75 @@ body {
   .slider-1 .slider__item {
     top: 50px;
   }
+}
 
-  @media screen and (max-width: 480px) {
-    .slider-1 h2::after {
-      margin: 19px auto 28px auto;
-    }
+@media screen and (max-width: 480px) {
+  .slider-1 h2::after {
+    margin: 19px auto 28px auto;
+  }
+}
+
+/* Slider height fix for wide screens (769px+)*/
+@media screen and (max-height: 620px) {
+  .slider-1 {
+    height: 450px;
+  }
+
+  .slider-1 .slider__item {
+    top: 100px;
+  }
+}
+
+@media screen and (max-height: 530px) {
+  .slider-1 {
+    height: 375px;
+  }
+
+  .slider-1 .slider__item {
+    top: 50px;
+  }
+}
+
+@media screen and (max-height: 455px) {
+  .slider-1 {
+    height: 275px;
+  }
+
+  .slider-1 .slider__item {
+    top: 0;
+  }
+
+  .slider-1 h2::after {
+    margin: 10px auto 20px auto;
+  }
+
+  .slider-1 p {
+    margin-bottom: 20px;
+  }
+}
+
+/* Slider height fix for screens 769px - 1024px */
+@media screen and (max-height: 455px) and (max-width: 1024px) {
+  .slider-1 h2 {
+    padding-top: 20px;
+  }
+
+  .slider-1 h2::after {
+    margin: 7px auto 14px auto;
+  }
+
+  .slider-1 p {
+    margin-bottom: 14px;
+  }
+}
+
+@media screen and (max-height: 620px) and (max-width: 768px) {
+  .slider-1 {
+    height: 450px;
+  }
+
+  .slider-1 .slider__item {
+    top: 100px;
   }
 }
 
