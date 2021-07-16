@@ -82,9 +82,9 @@ function sliderOneSwipeEnd() {
 
   if (Math.abs(sliderSwipeLength) > (0.33 * document.documentElement.clientWidth)) {
     if (sliderSwipeLength > 0) {
-      sliderOneNext();
-    } else {
       sliderOnePrevious();
+    } else {
+      sliderOneNext();
     }
   }
 
@@ -204,9 +204,9 @@ function sliderTwoSwipeEnd() {
 
   if (Math.abs(sliderSwipeLength) > (0.33 * document.documentElement.clientWidth)) {
     if (sliderSwipeLength > 0) {
-      sliderTwoNext();
-    } else {
       sliderTwoPrevious();
+    } else {
+      sliderTwoNext();
     }
   }
 
