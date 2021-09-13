@@ -163,7 +163,6 @@ h2 {
 .main-slider__text .button:hover {
     color: black;
     background-color: #f8e530;
-    border: 10px black;
     border: solid 2px black;
 }
 
@@ -305,10 +304,6 @@ h2 {
     display: grid;
     grid-template-columns: 33% 33% 33%;
     margin-bottom: 30px;
-}
-
-.works-section__work-tile {
-    /*object-fit: cover;*/
 }
 
 .works-section__work-tile img {
