@@ -12,6 +12,8 @@ h2 {
 
 .wrapper {
     width: 70%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .button {
@@ -21,6 +23,8 @@ h2 {
     border-radius: 5px;
     border: solid 2px black;
     transform: skew(35deg);
+    margin-right: auto;
+    margin-left: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -342,4 +346,54 @@ h2 {
 
 .partners-section img {
     width: 100%;
+}
+
+
+.reviews-section {
+    background: #252525 url("images/bg-line.png") repeat;
+}
+
+.reviews-section .wrapper {
+    padding-top: 90px;
+    padding-bottom: 70px;
+    text-align: center;
+    color: white;
+}
+
+.reviews-section h2 {
+    margin-bottom: 30px;
+}
+
+.reviews-section p {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.reviews-section .cards {
+    margin-bottom: 60px;
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 25px;
+}
+
+.reviews-section .card {
+    background-color: black;
+}
+
+.reviews-section .button {
+    background-color: #f8e530;
+    border-color: #f8e530;
+}
+
+.reviews-section .button-text {
+    color: black;
+}
+
+.reviews-section .button:hover {
+    background-color: black;
+}
+
+.reviews-section .button:hover .button-text {
+    color: #f8e530;
 }
