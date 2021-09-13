@@ -4,6 +4,10 @@ a {text-decoration: none;}
 li {list-style: none;}
 
 
+.wrapper {
+    width: 70%;
+}
+
 .button {
     font-weight: 900;
     width: 195px;
@@ -19,6 +23,7 @@ li {list-style: none;}
 
 .button-text {
     transform: skew(-35deg);
+    text-transform: uppercase;
 }
 
 .header {
@@ -28,7 +33,7 @@ li {list-style: none;}
     left: 0;
     height: 90px;
     background: #0c0c0c url(images/bg-line.png) repeat;
-    z-index: 1;
+    z-index: 1000;
 }
 
 .header__bar {
@@ -105,7 +110,6 @@ li {list-style: none;}
 }
 
 .main-slider .wrapper {
-    width: 70%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -168,4 +172,105 @@ li {list-style: none;}
     border-radius: 50%;
     background-color: black;
     margin: 0 7px;
+}
+
+
+.introduction-section {
+    background: #0c0c0c url(images/bg-line.png) repeat;
+    position: relative;
+}
+
+.introduction-section:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    background: #242424 url(images/bg-line.png) repeat;
+}
+
+.introduction-section .wrapper {
+    padding-top: 90px;
+    padding-bottom: 70px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.introduction-section h2 {
+    text-transform: uppercase;
+    color: white;
+    font-size: 40px;
+    font-weight: 900;
+    margin-bottom: 30px;
+}
+
+.introduction-section h2 span {
+    color: #f8e530;
+}
+
+.introduction-section p {
+    z-index: 100;
+    color: #a6a6a6;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.introduction-section .cards {
+    z-index: 100;
+    width: 100%;
+    margin-top: 35px;
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.introduction-section .card {
+    width: 220px;
+}
+
+.introduction-section .card .picture {
+    width: 200px;
+    height: 200px;
+    background-color: #f8e530;
+    border: solid white 10px;
+    border-radius: 50%;
+    margin-bottom: 30px;
+}
+
+.introduction-section .card h3 {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+
+.introduction-section .card p {
+    color: #a6a6a6;
+    font-size: 15px;
+    line-height: 17px;
+}
+
+.introduction-section .button {
+    z-index: 100;
+    background-color: #f8e530;
+    border-color: #f8e530;
+}
+
+.introduction-section .button-text {
+    color: black;
+}
+
+.introduction-section .button:hover {
+    background-color: black;
+}
+
+.introduction-section .button:hover .button-text {
+    color: #f8e530;
 }
