@@ -4,6 +4,23 @@ a {text-decoration: none;}
 li {list-style: none;}
 
 
+.button {
+    font-weight: 900;
+    width: 195px;
+    height: 36px;
+    border-radius: 5px;
+    border: solid 2px black;
+    transform: skew(35deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.button-text {
+    transform: skew(-35deg);
+}
+
 .header {
     position: fixed;
     right: 0;
@@ -72,4 +89,83 @@ li {list-style: none;}
     height: 35px;
     filter: invert(100%) sepia(0%) saturate(7470%) hue-rotate(242deg) brightness(95%) contrast(103%);
     cursor: pointer;
+}
+
+
+.main-slider {
+    margin-top: 90px;
+    height: calc(100vh - 90px);
+    background-color: #f8e530;
+    background-image: url("images/world-map.png");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-slider .wrapper {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-slider__image {
+    width: 40%;
+    position: relative;
+}
+
+.main-slider__image img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.main-slider__text {
+    width: 53%;
+    text-align: center;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-slider__text h1 {
+    font-weight: 900;
+    font-size: 70px;
+    line-height: 51px;
+    margin-bottom: 30px;
+}
+
+.main-slider__text p {
+    font-weight: 400;
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+.main-slider__text .button {
+    color: white;
+    background-color: black;
+}
+
+.main-slider__text .button:hover {
+    color: black;
+    background-color: #f8e530;
+    border: 10px black;
+    border: solid 2px black;
+}
+
+.main-slider .slider-markers {
+    display: flex;
+    margin-top: 90px;
+}
+
+.main-slider .marker {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: black;
+    margin: 0 7px;
 }
