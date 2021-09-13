@@ -329,3 +329,17 @@ h2 {
 }
 
 
+.partners-section {
+    background-color: black;
+}
+
+.partners-section .wrapper {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.partners-section img {
+    width: 100%;
+}
