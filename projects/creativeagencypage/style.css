@@ -379,6 +379,113 @@ h2 {
 
 .reviews-section .card {
     background-color: black;
+    padding: 30px 7%;
+    text-align: left;
+    position: relative;
+}
+
+.reviews-section .card .head {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.reviews-section .card .title {
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+    font-size: 20px;
+    z-index: 100;
+}
+
+.reviews-section .card .title span:last-child {
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.reviews-section .card .photo {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.reviews-section .card p {
+    color: #a3a3a3;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 25px;
+}
+
+.reviews-section .card .stars {
+    margin-top: 25px;
+    display: flex;
+}
+
+.reviews-section .card .star {
+    display: block;
+    width: 0;
+    height: 0;
+    position: relative;
+    border-right: 10px solid transparent;
+    border-bottom: 7px solid white;
+    border-left: 10px solid transparent;
+    transform: rotate(35deg);
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-right: 3px;
+}
+
+.reviews-section .card .star:before {
+    content: '';
+    display: block;
+    height: 0;
+    width: 0;
+    border-bottom: 8px solid white;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    position: absolute;
+    top: -4.5px;
+    left: -6.5px;
+    transform: rotate(-35deg);
+}
+
+.reviews-section .card .star:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-right: 10px solid transparent;
+    border-bottom: 7px solid white;
+    border-left: 10px solid transparent;
+    position: absolute;
+    top: 0.3px;
+    left: -10.5px;
+    transform: rotate(-70deg);
+}
+
+.reviews-section .card .star.active {
+    border-bottom: 7px solid #f8e530;
+}
+
+.reviews-section .card .star.active:before {
+    border-bottom: 8px solid #f8e530;
+}
+
+.reviews-section .card .star.active:after {
+    border-bottom: 7px solid #f8e530;
+}
+
+.reviews-section .card .quotes {
+    color: #f8e530;
+    font-size: 70px;
+    font-weight: 900;
+    position: absolute;
+    top: -37px;
+    right: 10px;
+    cursor: default;
 }
 
 .reviews-section .button {
@@ -397,3 +504,4 @@ h2 {
 .reviews-section .button:hover .button-text {
     color: #f8e530;
 }
+
