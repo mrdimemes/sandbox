@@ -505,3 +505,105 @@ h2 {
     color: #f8e530;
 }
 
+
+.feedback-section {
+    background-color: #f8e530;
+}
+
+.feedback-section .wrapper {
+    padding-top: 90px;
+    padding-bottom: 70px;
+}
+
+.feedback-section h2 {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.feedback-section .columns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.feedback-section .contacts {
+    width: 39%;
+}
+
+.feedback-section .contacts h3 {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+
+.feedback-section .contacts p {
+    font-size: 15px;
+}
+
+.feedback-section .contacts .break-line {
+    width: 100%;
+    border-bottom: dotted black 1px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.feedback-section .feedback-form {
+    width: 57%;
+}
+
+.feedback-section .feedback-form .input-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 15px;
+    margin-bottom: 15px;
+}
+
+.feedback-section .feedback-form__field {
+    width: 100%;
+    height: 30px;
+    box-sizing: border-box;
+    background-color: black;
+    border-color: black;
+    border-radius: 15px;
+    padding: 0 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #a3a3a3;
+}
+
+.feedback-section .feedback-form__field::placeholder {
+    color: #a3a3a3;
+}
+
+.feedback-section .feedback-form__field:focus {
+    background-color: white;
+    color: black;
+    outline: 0;
+}
+
+.feedback-section .feedback-form__massage-field {
+    resize: none;
+    height: 150px;
+    margin-bottom: 25px;
+    padding-top: 5px;
+}
+
+.feedback-section .feedback-form__button {
+    background-color: black;
+    color: white;
+    width: 125px;
+    height: 30px;
+    margin-left: 10px;
+    text-transform: uppercase;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+
+.feedback-section .feedback-form__button:hover {
+    background-color: #f8e530;
+    color: black;
+}
+
