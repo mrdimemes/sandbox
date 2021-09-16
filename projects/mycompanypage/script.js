@@ -1,8 +1,8 @@
-menu.onclick = function myFunction() {
-  var x = document.getElementById("head")
-  if (x.className === "head") {
-    x.className += " responsive";
-  } else {
-    x.className = "head";
-  }
+// burger menu
+let headerBurgerIcon = document.querySelector(".header__burger-icon");
+
+function toggleBurger() {
+  headerBurgerIcon.classList.toggle("active");
 }
+
+headerBurgerIcon.addEventListener("click", toggleBurger);
