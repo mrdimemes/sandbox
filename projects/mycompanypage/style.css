@@ -19,6 +19,15 @@ li {
   margin: 0 auto;
 }
 
+.yellow {
+  color: #fcac45;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+
 
 /* Header */
 .header {
@@ -180,36 +189,30 @@ li {
 }
 
 
+
 /* Welcome section*/
-section.welcome {
-    background: #000;
-    text-align: center;
-    padding-top: 200px;
-    padding-bottom: 418px;
+.welcome-section {
+  background: black;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-section.welcome h1 {
+.welcome-section__header {
   text-transform: uppercase;
-  color: #fff;
+  color: white;
   font-size: 44px;
   font-weight: lighter;
   color: #999999;
   margin-bottom: 2px;
 }
 
-section.welcome h1 span {
-  color: #fcac45;
-  font-weight: bold;
-}
-
-section.welcome p {
-  color: #fff;
+.welcome-section__text {
+  color: white;
   font-size: 20px;
   font-weight: lighter;
-}
-
-section.welcome p span {
-  font-weight: bold;
 }
 
 
