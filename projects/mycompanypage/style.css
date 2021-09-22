@@ -231,29 +231,31 @@ li {
   }
 }
 
+
+
 /* About section */
-section.about .wrapper {
+.about-section .wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 90px 0 95px 0;
 }
 
-section.about .wrapper .about_left {
+.about-section__left-column {
   max-width: 44.7%;
 }
 
-section.about .wrapper .about_left img {
+.about-section__left-column img {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
-section.about .wrapper .about_right {
+.about-section__right-column {
   max-width: 44.7%;
 }
 
-section.about .wrapper .about_right h2 {
+.about-section__header {
   display: inline-block;
   text-transform: uppercase;
   color: #333333;
@@ -261,13 +263,8 @@ section.about .wrapper .about_right h2 {
   font-weight: lighter;
 }
 
-section.about .wrapper .about_right h2 span {
-  color: #333333;
-  font-weight: bold;
-}
 
-
-section.about .wrapper .about_right h2::after {
+.about-section__header:after {
   content: "";
   display: block;
   background-color: #fcac45;
@@ -276,29 +273,28 @@ section.about .wrapper .about_right h2::after {
   margin-top: 11px;
 }
 
-section.about .wrapper .about_right p {
+.about-section__text {
   margin-top: 26px;
   color: #666666;
   font-size: 18px;
 }
 
-section.about .wrapper .about_right ul {
+.about-section__list {
   margin-top: 39px;
   color: #666666;
   font-size: 16px;
   font-style: italic;
 }
 
-section.about .wrapper .about_right ul li {
+.about-section__list-item {
   background: url("images/mark.png") 0px no-repeat;
   padding-left: 25px;
   margin-top: 10px;
 }
 
-section.about .wrapper .about_right ul li span {
+.about-section__list-item .bold {
   font-size: 18px;
   font-style: normal;
-  font-weight: bold;
 }
 
 
