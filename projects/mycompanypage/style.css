@@ -215,6 +215,21 @@ li {
   font-weight: lighter;
 }
 
+@media screen and (max-width: 1024px) {
+  .welcome-section__text {
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .welcome-section__header {
+    font-size: 35px;
+  }
+
+  .welcome-section__text {
+    font-size: 17px;
+  }
+}
 
 /* About section */
 section.about .wrapper {
