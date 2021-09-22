@@ -84,6 +84,9 @@ li {
 }
 
 @media screen and (max-width: 1024px) {
+  .header {
+    height: 75px;
+  }
 
   .header__burger-icon {
     width: 35px;
@@ -160,6 +163,19 @@ li {
   .header__link {
     margin-left: 0;
     margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    height: 60px;
+  }
+
+  .header__nav {
+    padding-bottom: 70px;
+  }
+  .header__nav.active {
+    top: 0px;
   }
 }
 
