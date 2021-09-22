@@ -27,6 +27,7 @@ li {
   height: 100px;
   position: fixed;
   top: 0;
+  z-index: 10;
 }
 
 .header__bar {
@@ -45,6 +46,7 @@ li {
   font-weight: 800;
   letter-spacing: -1px;
   transition: 0.5s;
+  z-index: 10;
 }
 
 .header__logo:hover {
@@ -53,6 +55,7 @@ li {
 
 .header__nav {
   display: flex;
+  transition: 0.5s;
 }
 
 .header__link {
@@ -81,9 +84,6 @@ li {
 }
 
 @media screen and (max-width: 1024px) {
-  .header__link {
-    display: none;
-  }
 
   .header__burger-icon {
     width: 35px;
@@ -139,6 +139,27 @@ li {
     background-color: #fcac45;
     transform: rotate(45deg);
     bottom: 10px;
+  }
+
+  .header__nav {
+    position: absolute;
+    top: -450px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  .header__nav.active {
+    top: 30px;
+  }
+
+  .header__link {
+    margin-left: 0;
+    margin-bottom: 20px;
   }
 }
 
