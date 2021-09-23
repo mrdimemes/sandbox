@@ -1,301 +1,317 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 
-  <head>
-    <meta charset="utf-8">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;900&family=Satisfy&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>My Company</title>
-  </head>
+    <title>Creative Agency</title>
+</head>
 
-  <body>
+<body>
     <header class="header">
-      <div class="header__bar">
-        <div class="header__logo">MyCompany</div>
-        <nav class="header__nav">
-          <a class="header__link" href="#welcome">Home</a>
-          <a class="header__link" href="#about">About</a>
-          <a class="header__link" href="#services">Services</a>
-          <a class="header__link" href="#portfolio">Portfolio</a>
-          <a class="header__link" href="#testimonials">Testimonials</a>
-          <a class="header__link" href="#contact">Contact</a>
-        </nav>
-        <div class="header__burger-icon" href="#"><span></span></div>
-      </div>
+        <div class="header__bar">
+            <div class="header__logo">
+                <span>Creative</span>
+                <span>agency</span>
+            </div>
+            <nav class="header__nav">
+                <a class="header__link active" href="#">home</a>
+                <a class="header__link" href="#">page</a>
+                <a class="header__link" href="#">portfolio</a>
+                <a class="header__link" href="#">blog</a>
+                <a class="header__link" href="#">contact us</a>
+                <img class="header__burger-icon" src="images/burger-icon.svg" alt="menu">
+            </nav>
+        </div>
     </header>
-    <section class="welcome-section" id="welcome">
+    <main>
+        <section class="main-slider">
+            <div class="wrapper">
+                <div class="main-slider__image">
+                    <img src="images/main-slider-image.png" alt="like!">
+                </div>
+                <div class="main-slider__text">
+                    <h1>Digital Creative Agency</h1>
+                    <p>
+                        We are a creative web design agency who makes beautiful
+                        websites for thousands of peoples.
+                    </p>
+                    <a href="#" class="button">
+                        <span class="button-text">know more</span>
+                    </a>
+                </div>
+            </div>
+            <div class="slider-markers">
+                <div class="marker"></div>
+                <div class="marker"></div>
+                <div class="marker"></div>
+                <div class="marker"></div>
+            </div>
+        </section>
+        <section class="introduction-section">
+            <div class="wrapper">
+                <h2>You dream. <span>We design.</span></h2>
+                <p>
+                    orem ipsum dolor sit amet, consect adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                    incididunt.orem ipsum dolor sit amet, consect adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua incididunt.
+                </p>
+                <div class="cards">
+                    <div class="card">
+                        <div class="picture"></div>
+                        <h3>Branding</h3>
+                        <p>
+                            We are a creative web design agency who makes beautiful
+                            websites for thousands of peoples.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <div class="picture"></div>
+                        <h3>Graphic Design</h3>
+                        <p>
+                            We are a creative web design agency who makes beautiful
+                            websites for thousands of peoples.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <div class="picture"></div>
+                        <h3>Creative Ideas</h3>
+                        <p>
+                            We are a creative web design agency who makes beautiful
+                            websites for thousands of peoples.
+                        </p>
+                    </div>
+                </div>
+                <a href="#" class="button">
+                    <span class="button-text">know more</span>
+                </a>
+            </div>
+        </section>
+        <section class="works-section">
+            <div class="wrapper">
+                <h2>Our creative work</h2>
+                <p>
+                    orem ipsum dolor sit amet, consect adipisicing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                    incididunt.orem ipsum dolor sit amet, consect adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua incididunt.
+                </p>
+                <div class="works-section__work-tiles">
+                    <div class="works-section__work-tile">
+                        <img src="images/work-1.png" alt="work">
+                    </div>
+                    <div class="works-section__work-tile">
+                        <img src="images/work-2.png" alt="work">
+                    </div>
+                    <div class="works-section__work-tile">
+                        <img src="images/work-3.png" alt="work">
+                    </div>
+                    <div class="works-section__work-tile">
+                        <img src="images/work-4.png" alt="work">
+                    </div>
+                    <div class="works-section__work-tile">
+                        <img src="images/work-5.png" alt="work">
+                    </div>
+                    <div class="works-section__work-tile">
+                        <img src="images/work-6.png" alt="work">
+                    </div>
+                    <div class="works-section__work-tile">
+                        <img src="images/work-7.png" alt="work">
+                    </div>
+                    <div class="works-section__work-tile">
+                        <img src="images/work-8.png" alt="work">
+                    </div>
+                    <div class="works-section__work-tile">
+                        <img src="images/work-9.png" alt="work">
+                    </div>
+                </div>
+                <a href="#" class="button">
+                    <span class="button-text">know more</span>
+                </a>
+            </div>
+        </section>
+        <section class="partners-section">
+            <div class="wrapper">
+                <div class="partners-section__logos">
+                    <img src="images/partners-logos.png" alt="partners logos">
+                </div>
+            </div>
+        </section>
+        <section class="reviews-section">
+            <div class="wrapper">
+                <h2>Our User’s Review</h2>
+                <p>
+                    orem ipsum dolor sit amet, consect adipisicing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua
+                    incididunt.orem ipsum dolor sit amet, consect adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua incididunt.
+                </p>
+                <div class="cards">
+                    <div class="card">
+                        <div class="head">
+                            <div class="photo"></div>
+                            <div class="title">
+                                <span class="name">David Smith</span>
+                                <span class="position">Graphic Designer</span>
+                            </div>
+                        </div>
+
+                        <p class="review">
+                            Lorem ipsum dolor sit amet, consect adipisicing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore
+                            magna aliqua incididunt.Lorem ipsum dolor sit amet,
+                            consect adipisicing elit.
+                        </p>
+                        <div class="quotes">„</div>
+                        <div class="stars">
+                            <div class="star active"></div>
+                            <div class="star active"></div>
+                            <div class="star active"></div>
+                            <div class="star active"></div>
+                            <div class="star"></div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="head">
+                            <div class="photo"></div>
+                            <div class="title">
+                                <span class="name">David Smith</span>
+                                <span class="position">Graphic Designer</span>
+                            </div>
+                        </div>
+
+                        <p class="review">
+                            Lorem ipsum dolor sit amet, consect adipisicing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore
+                            magna aliqua incididunt.Lorem ipsum dolor sit amet,
+                            consect adipisicing elit.
+                        </p>
+                        <div class="quotes">„</div>
+                        <div class="stars">
+                            <div class="star active"></div>
+                            <div class="star active"></div>
+                            <div class="star active"></div>
+                            <div class="star active"></div>
+                            <div class="star"></div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="head">
+                            <div class="photo"></div>
+                            <div class="title">
+                                <span class="name">David Smith</span>
+                                <span class="position">Graphic Designer</span>
+                            </div>
+                        </div>
+
+                        <p class="review">
+                            Lorem ipsum dolor sit amet, consect adipisicing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore
+                            magna aliqua incididunt.Lorem ipsum dolor sit amet,
+                            consect adipisicing elit.
+                        </p>
+                        <div class="quotes">„</div>
+                        <div class="stars">
+                            <div class="star active"></div>
+                            <div class="star active"></div>
+                            <div class="star active"></div>
+                            <div class="star active"></div>
+                            <div class="star"></div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="button">
+                    <span class="button-text">know more</span>
+                </a>
+            </div>
+        </section>
+        <section class="feedback-section">
+            <div class="wrapper">
+                <h2>Get in touch</h2>
+                <div class="columns">
+                    <div class="contacts">
+                        <h3>Address:</h3>
+                        <p>
+                            123, Main Street, Your City, New York USA 789456
+                        </p>
+                        <div class="break-line"></div>
+                        <h3>Call us:</h3>
+                        <p>
+                            <span>+123 4567 890</span>, <span>+123 4567 890</span>
+                        </p>
+                        <div class="break-line"></div>
+                        <h3>Email:</h3>
+                        <p>
+                            example@email.com
+                        </p>
+                    </div>
+                    <form class="feedback-form" action="index.html" method="post">
+                        <div class="input-fields">
+                            <input class="feedback-form__field feedback-form__name-field"
+                                   type="text" name="user-name" required placeholder="Name">
+                            <input class="feedback-form__field feedback-form__email-field"
+                                   type="email" name="user-email" required placeholder="Email">
+                            <input class="feedback-form__field feedback-form__subject-field"
+                                   type="text" name="user-subject" placeholder="Subject">
+                            <input class="feedback-form__field feedback-form__phone-field"
+                                   type="tel" name="user-phone" placeholder="Phone">
+                        </div>
+                        <textarea class="feedback-form__field feedback-form__massage-field"
+                                  name="user-massage" required placeholder="Massage"></textarea>
+                        <input class="feedback-form__button button" type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
         <div class="wrapper">
-          <h1 class="welcome-section__header">
-              Welcome on
-              <span class="bold yellow">MyCompany</span>
-          </h1>
-          <p class="welcome-section__text">
-              We are a digital agency with
-              <span class="bold">years of experience</span>
-              and with
-              <span class="bold">extraordinary people</span>
-          </p>
-        </div>
-    </section>
-
-    <section class="about-section" id="about">
-      <div class="wrapper">
-        <div class="about-section__left-column">
-          <img src="images/mac.png" alt="mac">
-        </div>
-        <div class="about-section__right-column">
-          <h2 class="about-section__header">
-              Some words
-              <span class="bold">about us</span>
-          </h2>
-          <p class="about-section__text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Doloribus ex quidem maiores ullam quis, at asperiores minus ad
-            eaque maxime possimus.
-          </p>
-          <ul class="about-section__list">
-            <li class="about-section__list-item">
-                <span class="bold">Mission</span>
-                - We deliver uniqueness and quality
-            </li>
-            <li class="about-section__list-item">
-                <span class="bold">Skills</span>
-                - Delivering fast and excellent results
-            </li>
-            <li class="about-section__list-item">
-                <span class="bold">Clients</span>
-                - Satisfied clients thanks to our experience
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="team">
-      <div class="wrapper">
-        <h2>Our team</h2>
-
-        <div class="cards">
-
-          <div class="card">
-            <div class="photo"></div>
-            <h3 class="name">Vlad Ivanov</h3>
-            <p class="position">Designer</p>
-            <p class="quote">
-              Do not seek to change what has come before.
-              Seek to create that which has not.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="photo"></div>
-            <h3 class="name">Bogdan Makarov</h3>
-            <p class="position">Manager</p>
-            <p class="quote">
-              Do not seek to change what has come before.
-              Seek to create that which has not.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="photo"></div>
-            <h3 class="name">Pavel Konov</h3>
-            <p class="position">Copywriter</p>
-            <p class="quote">
-              Do not seek to change what has come before.
-              Seek to create that which has not.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="photo"></div>
-            <h3 class="name">Max Belov</h3>
-            <p class="position">SEO</p>
-            <p class="quote">
-              Do not seek to change what has come before.
-              Seek to create that which has not.
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="services" id="services">
-      <div class="wrapper">
-        <h2>Our services</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Doloribus ex quidem maiores ullam quis, at asperiores minus ad eaque
-          maxime possimus cum ab iusto assumenda velit excepturi porro
-          ipsa tenetur.Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Doloribus ex quidem maiores ullam quis, at asperiores minus ad eaque
-          maxime possimus cum ab iusto assumenda velit
-          excepturi porro ipsa tenetur.
-        </p>
-        <div class="cards">
-          <div class="card">
-            <div class="icon" id="screenicon"></div>
-            <h3 class="activity">Web design</h3>
-            <p class="description">
-              The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..",
-              comes from a line in section 1.10.32.
-            </p>
-          </div>
-          <div class="card">
-            <div class="icon" id="phoneicon"></div>
-            <h3 class="activity">Mobile apps</h3>
-            <p class="description">
-              The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..",
-              comes from a line in section 1.10.32.
-            </p>
-          </div>
-          <div class="card">
-            <div class="icon" id="cameraicon"></div>
-            <h3 class="activity">Photography</h3>
-            <p class="description">
-              The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..",
-              comes from a line in section 1.10.32.
-            </p>
-          </div>
-          <div class="card">
-            <div class="icon" id="hornicon"></div>
-            <h3 class="activity">Marketing</h3>
-            <p class="description">
-              The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..",
-              comes from a line in section 1.10.32.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="clients">
-      <div class="wrapper">
-        <h2>Some of <span>our clients</span></h2>
-        <div class="box">
-          <img src="images/clients/chanel.png" alt="chanel">
-          <img src="images/clients/zara.png" alt="zara">
-          <img src="images/clients/guerlain.png" alt="guerlain">
-          <img src="images/clients/lancome.png" alt="lancome">
-          <img src="images/clients/lacoste.png" alt="lacoste">
-        </div>
-      </div>
-    </section>
-
-    <section class="works" id="portfolio">
-      <div class="wrapper">
-        <h2>Take a look at <span>our works</span></h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Doloribus ex quidem maiores ullam quis, at asperiores minus ad eaque
-          maxime possimus cum ab iusto assumenda velit excepturi porro ipsa
-          tenetur.Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Doloribus ex quidem maiores ullam quis, at asperiores minus ad eaque
-          maxime possimus cum ab iusto assumenda velit excepturi porro ipsa tenetur.
-        </p>
-        <div class="cards">
-          <div class="card" id="firstcard">
-            <img src="images/works/work1.png" alt="work1">
-          </div>
-          <div class="card">
-            <img src="images/works/work1.png" alt="work1">
-          </div>
-          <div class="card">
-            <img src="images/works/work1.png" alt="work1">
-          </div>
-          <div class="card">
-            <img src="images/works/work1.png" alt="work1">
-          </div>
-
-          <div class="card" id="firstcard">
-            <img src="images/works/work2.png" alt="work2">
-          </div>
-          <div class="card">
-            <img src="images/works/work2.png" alt="work2">
-          </div>
-          <div class="card">
-            <img src="images/works/work2.png" alt="work2">
-          </div>
-          <div class="card">
-            <img src="images/works/work2.png" alt="work2">
-          </div>
-
-          <div class="card" id="firstcard">
-            <img src="images/works/work3.png" alt="work3">
-          </div>
-          <div class="card">
-            <img src="images/works/work3.png" alt="work3">
-          </div>
-          <div class="card">
-            <img src="images/works/work3.png" alt="work3">
-          </div>
-          <div class="card">
-            <img src="images/works/work3.png" alt="work3">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="testimonials" id="testimonials">
-      <div class="wrapper">
-        <h2>Our clients' <span>testimonials</span></h2>
-        <div class="testimonial">
-          <p class="text">
-            This book is a treatise on the theory of ethics, very popular during
-            the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor
-            sit amet..", comes from a line in section 1.10.32.
-          </p>
-          <p class="autor">
-            <span>Dean Martin</span>, CEO Acme Inc.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact" id="contact">
-      <div class="wrapper">
-        <h2>Contact us</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Doloribus ex quidem maiores ullam quis, at asperiores minus ad eaque
-          maxime possimus cum ab iusto assumenda velit excepturi porro ipsa
-          tenetur. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        </p>
-        <form class="contact-form" action="index.html" method="post">
-          <div class="name-email-part">
-            <div class="name-part">
-              <label class="required" for="name-field">Name</label>
-              <input type="text" name="user-name" id="name-field" required>
+            <div class="about">
+                <div class="footer__logo">
+                    <span>Creative</span>
+                    <span>agency</span>
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Aperiam velit sequi labore.Lorem ipsum dolor sit amet,
+                    consectetur adipisicing elit. Aperiam velit sequi labore.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Aperiam velit sequi labore.
+                </p>
             </div>
-            <div class="email-part">
-              <label class="required" for="email-field">Email address</label>
-              <input type="email" name="user-email" id="email-field" required>
+            <div class="pages">
+                <h3>Pages</h3>
+                <div class="footer__links">
+                    <a href="#" class="footer__link">How to work</a>
+                    <a href="#" class="footer__link">About us</a>
+                    <a href="#" class="footer__link">Contact us</a>
+                    <a href="#" class="footer__link">Media</a>
+                </div>
             </div>
-          </div>
-
-          <div class="massage-part">
-            <label class="required" for="massage-field">Massage</label>
-            <textarea name="user-massage" id="massage-field" required></textarea>
-          </div>
-          <input id="submit-btn" type="submit" value="Send">
-        </form>
-      </div>
-    </section>
-
-    <footer>
-      <div class="wrapper">
-        <div class="footer-icons">
-          <img src="images/icons/facebook.png" alt="facebook">
-          <img src="images/icons/twitter.png" alt="twitter">
-          <img src="images/icons/google.png" alt="google">
-          <img src="images/icons/linkedin.png" alt="linkedin">
-          <img src="images/icons/dribbble.png" alt="dribbble">
+            <div class="service">
+                <h3>Service</h3>
+                <div class="footer__links">
+                    <a href="#" class="footer__link">How to work</a>
+                    <a href="#" class="footer__link">About us</a>
+                    <a href="#" class="footer__link">Contact us</a>
+                    <a href="#" class="footer__link">Media</a>
+                </div>
+            </div>
+            <div class="follow-us">
+                <h3>Follow us on</h3>
+                <div class="footer-icons">
+                    <img src="images/footer-icons.png" alt="social media">
+                </div>
+            </div>
         </div>
-      </div>
     </footer>
 
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
