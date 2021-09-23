@@ -63,18 +63,18 @@ body {
 
 .keypad {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 5px;
-    grid-row-gap: 5px;
+    grid-template-columns: repeat(6, 25px);
     grid-template-areas:
-        ". up ."
-        "left down right";
+        "arot arot arot crot crot crot"
+        "left left left right right right"
+        "down down down down down down";
     position: absolute;
     bottom: 0;
 }
 
 .key {
-    width: 47px;
+    width: 100%;
+    min-width: 47px;
     height: 47px;
     border: solid 1px black;
     box-sizing: border-box;
@@ -83,8 +83,12 @@ body {
     align-items: center;
 }
 
-#key-up {
-    grid-area: up;
+#key-counter-clockwise {
+    grid-area: arot;
+}
+
+#key-clockwise {
+    grid-area: crot;
 }
 
 #key-left {
@@ -97,4 +101,11 @@ body {
 
 #key-right {
     grid-area: right;
+}
+
+@media screen and (max-height: 650px) {
+    #game-field {
+        width: 200px;
+        height: 400px;
+    }
 }
