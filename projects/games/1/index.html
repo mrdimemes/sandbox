@@ -9,6 +9,24 @@
 </head>
 
 <body>
-    <canvas id="game-field"></canvas>
+    <h1 class="page-header">Tetris</h1>
+    <div class="wrapper">
+        <canvas id="game-field" class="field">Your browser is unsupported.</canvas>
+        <div id="panels">
+            <canvas id="incoming-figure-field" class="field"></canvas>
+            <div id="score-counter" class="field"></div>
+            <div class="buttons">
+                <div id="start-button" class="button">Start</div>
+                <div id="reset-button" class="button">Reset</div>
+                <div id="pause-button" class="button">Pause</div>
+            </div>
+            <div class="keypad">
+                <div id="key-up" class="key">↑</div>
+                <div id="key-left" class="key">←</div>
+                <div id="key-down" class="key">↓</div>
+                <div id="key-right" class="key">→</div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
