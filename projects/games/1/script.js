@@ -164,8 +164,9 @@ function rotateFigureClockwise(figure) {
 }
 
 function rotateFigureCounterClockwise(figure) {
-    //reverse by rows
+    //deep copy
     let rotetedFigure = figure.map(row => row.slice());
+    //reverse by rows
     rotetedFigure = rotetedFigure.map(element => element.reverse());
     //transpose
     return rotetedFigure.map(

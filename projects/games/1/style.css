@@ -59,6 +59,11 @@ body {
     height: 20px;
     border: solid 1px black;
     box-sizing: border-box;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #e1e1e1;
 }
 
 .keypad {
@@ -81,6 +86,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+}
+
+.key:hover {
+    background-color: #e1e1e1;
 }
 
 #key-counter-clockwise {
