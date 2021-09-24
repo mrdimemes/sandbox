@@ -32,49 +32,49 @@ incomingFigureFieldContext.lineWidth = 2;
 
 
 
-let figureI = [
+const figureI = [
     [0, 1, 0, 0],
     [0, 1, 0, 0],
     [0, 1, 0, 0],
     [0, 1, 0, 0]
 ];
 
-let figureL = [
+const figureL = [
     [0, 1, 0, 0],
     [0, 1, 0, 0],
     [0, 1, 1, 0],
     [0, 0, 0, 0]
 ];
 
-let figureJ = [
+const figureJ = [
     [0, 0, 1, 0],
     [0, 0, 1, 0],
     [0, 1, 1, 0],
     [0, 0, 0, 0]
 ];
 
-let figureO = [
+const figureO = [
     [0, 0, 0, 0],
     [0, 1, 1, 0],
     [0, 1, 1, 0],
     [0, 0, 0, 0]
 ];
 
-let figureZ = [
+const figureZ = [
     [0, 0, 0, 0],
     [1, 1, 0, 0],
     [0, 1, 1, 0],
     [0, 0, 0, 0]
 ];
 
-let figureS = [
+const figureS = [
     [0, 0, 0, 0],
     [0, 1, 1, 0],
     [1, 1, 0, 0],
     [0, 0, 0, 0]
 ];
 
-let figureT = [
+const figureT = [
     [0, 0, 0, 0],
     [0, 1, 0, 0],
     [1, 1, 1, 0],
@@ -92,7 +92,13 @@ function resetGameFieldArray() {
     }
 }
 
+function clearGameField() {
+    gameFieldContext.fillStyle = "white";
+    gameFieldContext.fillRect(0, 0, gameFieldWidth, gameFieldHeight);
+}
+
 function drawGameField() {
+    clearGameField();
     let col = 0;
     for (let row = 0; row < 20; row++) {
         for (col = 0; col < 10; col++) {
@@ -115,12 +121,14 @@ function drawGameField() {
     };
 }
 
-function clearGameField() {
-    gameFieldContext.fillStyle = "white";
-    gameFieldContext.fillRect(0, 0, gameFieldWidth, gameFieldHeight);
+function clearIncomingFigureField() {
+    incomingFigureFieldContext.fillStyle = "white";
+    incomingFigureFieldContext.fillRect(0, 0,
+        incomingFigureFieldWidth, incomingFigureFieldHeight);
 }
 
 function drawIncomingFigure(figure, color) {
+    clearIncomingFigureField();
     incomingFigureFieldContext.fillStyle = color;
     let col = 0;
     for (let row = 0; row < 4; row++) {
@@ -143,10 +151,26 @@ function drawIncomingFigure(figure, color) {
     }
 }
 
-function clearIncomingFigureField() {
-    incomingFigureFieldContext.fillStyle = "white";
-    incomingFigureFieldContext.fillRect(0, 0,
-        incomingFigureFieldWidth, incomingFigureFieldHeight);
+function rotateFigureClockwise(figure) {
+    //transpose
+    let rotetedFigure = figure.map(
+        (element, index) => figure.map(
+            element => element[index]
+        )
+    );
+    alert(figure === rotetedFigure);
+    //reverse by rows
+    return rotetedFigure.map(element => element.reverse());
 }
 
-drawIncomingFigure(figureT, "green");
+function rotateFigureCounterClockwise(figure) {
+    //reverse by rows
+    let rotetedFigure = figure.map(row => row.slice());
+    rotetedFigure = rotetedFigure.map(element => element.reverse());
+    //transpose
+    return rotetedFigure.map(
+        (element, index) => rotetedFigure.map(
+            element => element[index]
+        )
+    );
+}
