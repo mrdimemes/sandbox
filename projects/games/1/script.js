@@ -29,103 +29,102 @@ let incomingFigureFieldContext = incomingFigureField.getContext("2d");
 incomingFigureFieldContext.strokeStyle = "black";
 incomingFigureFieldContext.lineWidth = 2;
 
-
-
-
-const figureI = [
-    [0, 1, 0, 0],
-    [0, 1, 0, 0],
-    [0, 1, 0, 0],
-    [0, 1, 0, 0]
+const figures = [
+    [
+        [0, 1, 0, 0],
+        [0, 1, 0, 0],
+        [0, 1, 0, 0],
+        [0, 1, 0, 0]
+    ],
+    [
+        [0, 1, 0, 0],
+        [0, 1, 0, 0],
+        [0, 1, 1, 0],
+        [0, 0, 0, 0]
+    ],
+    [
+        [0, 0, 1, 0],
+        [0, 0, 1, 0],
+        [0, 1, 1, 0],
+        [0, 0, 0, 0]
+    ],
+    [
+        [0, 0, 0, 0],
+        [0, 1, 1, 0],
+        [0, 1, 1, 0],
+        [0, 0, 0, 0]
+    ],
+    [
+        [0, 0, 0, 0],
+        [1, 1, 0, 0],
+        [0, 1, 1, 0],
+        [0, 0, 0, 0]
+    ],
+    [
+        [0, 0, 0, 0],
+        [0, 1, 1, 0],
+        [1, 1, 0, 0],
+        [0, 0, 0, 0]
+    ],
+    [
+        [0, 0, 0, 0],
+        [0, 1, 0, 0],
+        [1, 1, 1, 0],
+        [0, 0, 0, 0]
+    ]
 ];
 
-const figureL = [
-    [0, 1, 0, 0],
-    [0, 1, 0, 0],
-    [0, 1, 1, 0],
-    [0, 0, 0, 0]
-];
-
-const figureJ = [
-    [0, 0, 1, 0],
-    [0, 0, 1, 0],
-    [0, 1, 1, 0],
-    [0, 0, 0, 0]
-];
-
-const figureO = [
-    [0, 0, 0, 0],
-    [0, 1, 1, 0],
-    [0, 1, 1, 0],
-    [0, 0, 0, 0]
-];
-
-const figureZ = [
-    [0, 0, 0, 0],
-    [1, 1, 0, 0],
-    [0, 1, 1, 0],
-    [0, 0, 0, 0]
-];
-
-const figureS = [
-    [0, 0, 0, 0],
-    [0, 1, 1, 0],
-    [1, 1, 0, 0],
-    [0, 0, 0, 0]
-];
-
-const figureT = [
-    [0, 0, 0, 0],
-    [0, 1, 0, 0],
-    [1, 1, 1, 0],
-    [0, 0, 0, 0]
-];
+colors = ["pink", "blue", "red", "yellow"];
 
 
 
 function resetGameFieldArray() {
     let i; let j;
-    for (i = 0; i < 20; i++) {
-        for (j = 0; j < 10; j++) {
-            gameFieldArray[i][j] = 0;
+    for (i = 0; i < 27; i++) {
+        for (j = 0; j < 16; j++) {
+            if ((i < 24) && ((j > 2) && (j < 13))) {
+                gameFieldArray[i][j] = 0;
+            } else {
+                gameFieldArray[i][j] = 1;
+            }
         }
     }
-}
+};
 
 function clearGameField() {
     gameFieldContext.fillStyle = "white";
     gameFieldContext.fillRect(0, 0, gameFieldWidth, gameFieldHeight);
-}
+};
 
 function drawGameField() {
     clearGameField();
     let col = 0;
-    for (let row = 0; row < 20; row++) {
-        for (col = 0; col < 10; col++) {
-            if (figure[row][col]) {
-                gameFieldContext.fillStyle = figure[row][col];
+    for (let row = 4; row < 24; row++) {
+        for (col = 3; col < 13; col++) {
+            if (gameFieldArray[row][col]) {
+                gameFieldContext.fillStyle = gameFieldArray[row][col];
                 gameFieldContext.fillRect(
-                    col * gameFieldCellWidth,
-                    row * gameFieldCellHeight,
+                    (col - 3) * gameFieldCellWidth,
+                    (row - 4) * gameFieldCellHeight,
                     gameFieldCellWidth,
                     gameFieldCellHeight
                 );
                 gameFieldContext.strokeRect(
-                    col * gameFieldCellWidth,
-                    row * gameFieldCellHeight,
+                    (col - 3) * gameFieldCellWidth,
+                    (row - 4) * gameFieldCellHeight,
                     gameFieldCellWidth,
                     gameFieldCellHeight
                 );
             }
         }
-    };
-}
+    }
+};
 
 function clearIncomingFigureField() {
     incomingFigureFieldContext.fillStyle = "white";
     incomingFigureFieldContext.fillRect(0, 0,
         incomingFigureFieldWidth, incomingFigureFieldHeight);
-}
+};
 
 function drawIncomingFigure(figure, color) {
     clearIncomingFigureField();
@@ -149,7 +148,7 @@ function drawIncomingFigure(figure, color) {
             }
         }
     }
-}
+};
 
 function rotateFigureClockwise(figure) {
     //transpose
@@ -158,10 +157,9 @@ function rotateFigureClockwise(figure) {
             element => element[index]
         )
     );
-    alert(figure === rotetedFigure);
     //reverse by rows
     return rotetedFigure.map(element => element.reverse());
-}
+};
 
 function rotateFigureCounterClockwise(figure) {
     //deep copy
@@ -173,5 +171,102 @@ function rotateFigureCounterClockwise(figure) {
         (element, index) => rotetedFigure.map(
             element => element[index]
         )
+    )
+};
+
+function getRandomFigure() {
+    //deep copy of random figure
+    let newFigure = figures[Math.floor(Math.random() * figures.length)].map(
+        row => row.slice()
     );
+    //random rotation
+    for (let i = 0; i < Math.floor(Math.random() * 4); i++) {
+        newFigure = rotateFigureClockwise(newFigure);
+    };
+    //random color
+    let figureColor = colors[Math.floor(Math.random() * colors.length)]
+    return newFigure, figureColor;
+};
+
+
+
+let currentFigure;
+let currentFigureColor;
+let currentFigureX;
+let currentFigureY;
+let incomingFigure;
+let incomingFigureColor;
+
+function changeCurrentFigure() {
+    if ((typeof nextFigure) == "undefined") {
+        currentFigure, currentFigureColor = getRandomFigure();
+    } else {
+        currentFigure = nextFigure;
+        currentFigureColor = nextFigureColor;
+    };
+    incomingFigure, incomingFigureColor = getRandomFigure();
+    currentFigureX = 0;
+    currentFigureY = 6;
+};
+
+function drawCurrentFigure() {
+    gameFieldContext.fillStyle = currentFigureColor;
+    let col = currentFigureY;
+    for (let row = currentFigureX; row < currentFigureX + 4; row++) {
+        if (row < 4) {continue;};
+        for (col = currentFigureY; col < currentFigureY + 4; col++) {
+            if (currentFigure[row - currentFigureX][col - currentFigureY]) {
+                gameFieldContext.fillRect(
+                    (col - 3) * gameFieldCellWidth,
+                    (row - 4) * gameFieldCellHeight,
+                    gameFieldCellWidth,
+                    gameFieldCellHeight
+                );
+                gameFieldContext.strokeRect(
+                    (col - 3) * gameFieldCellWidth,
+                    (row - 4) * gameFieldCellHeight,
+                    gameFieldCellWidth,
+                    gameFieldCellHeight
+                );
+            }
+        }
+    }
 }
+
+function checkCollisions(figure, figureX, figureY) {
+    let col;
+    for (let row = figureX; row < figureX + 4; row++) {
+        for (col = figureY; col < figureY + 4; col++) {
+            if (gameFieldArray[row][col]) {
+                if (figure[row - figureX][col - figureY]) {
+                    return true;
+                }
+            }
+        }
+    };
+    return false;
+}
+
+function saveCurrentFigureToGameFieldArray() {
+    let col;
+    for (let row = currentFigureX; row < currentFigureX + 4; row++) {
+        for (col = currentFigureY; col < currentFigureY + 4; col++) {
+            if (currentFigure[row - currentFigureX][col - currentFigureY]) {
+                gameFieldArray[row][col] = currentFigureColor;
+            }
+        }
+    }
+}
+
+function currentFigureFallIteration() {
+    let targetX = currentFigureX + 1;
+    if (checkCollisions(currentFigure, targetX, currentFigureY)) {
+        saveCurrentFigureToGameFieldArray();
+        changeCurrentFigure();
+        drawIncomingFigure(incomingFigure, incomingFigureColor);
+    } else {
+        currentFigureX = targetX;
+    }
+    drawGameField();
+    drawCurrentFigure();
+};
