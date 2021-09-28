@@ -11,7 +11,7 @@ gameField.height = gameFieldHeight;
 
 let gameFieldContext = gameField.getContext("2d");
 
-let gameFieldArray;
+let gameFieldArray = [];
 
 
 let incomingFigureField = document.querySelector("#incoming-figure-field");
@@ -81,6 +81,7 @@ colors = ["pink", "blue", "red", "yellow"];
 function resetGameFieldArray() {
     let i; let j;
     for (i = 0; i < 27; i++) {
+        gameFieldArray[i] = [];
         for (j = 0; j < 16; j++) {
             if ((i < 24) && ((j > 2) && (j < 13))) {
                 gameFieldArray[i][j] = 0;
@@ -185,7 +186,7 @@ function getRandomFigure() {
     };
     //random color
     let figureColor = colors[Math.floor(Math.random() * colors.length)]
-    return newFigure, figureColor;
+    return [newFigure, figureColor];
 };
 
 
@@ -199,12 +200,12 @@ let incomingFigureColor;
 
 function changeCurrentFigure() {
     if ((typeof nextFigure) == "undefined") {
-        currentFigure, currentFigureColor = getRandomFigure();
+        [currentFigure, currentFigureColor] = getRandomFigure();
     } else {
         currentFigure = nextFigure;
         currentFigureColor = nextFigureColor;
     };
-    incomingFigure, incomingFigureColor = getRandomFigure();
+    [incomingFigure, incomingFigureColor] = getRandomFigure();
     currentFigureX = 0;
     currentFigureY = 6;
 };
@@ -258,6 +259,50 @@ function saveCurrentFigureToGameFieldArray() {
     }
 }
 
+function increaseScore(killedRowsCount) {
+    switch (killedRowsCount) {
+        case 1:
+            score += 100;
+            break;
+        case 2:
+            score += 300;
+            break;
+        case 3:
+            score += 700;
+            break;
+        case 4:
+            score += 1500;
+            break;
+    }
+}
+
+function checkCompliteRow(row) {
+    for (let i = 3; i < 13; i++) {
+        if (!i) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function overlapRows(rowsIndexesArray) {
+    
+}
+
+function killCompleteRows() {
+    let killedRowsIndexes = [];
+    for (let row = 4; row < 24; row++) {
+        if (checkCompliteRow(gameFieldArray[row])) {
+            killedRowsIndexes.push(row);
+        }
+    }
+    let killedRowsCount = killedRowsIndexes.length;
+    if (killedRowsCount) {
+        overlapRows(killedRowsIndexes);
+        increaseScore(killedRowsCount);
+    }
+}
+
 function currentFigureFallIteration() {
     let targetX = currentFigureX + 1;
     if (checkCollisions(currentFigure, targetX, currentFigureY)) {
@@ -270,3 +315,93 @@ function currentFigureFallIteration() {
     drawGameField();
     drawCurrentFigure();
 };
+
+function moveCurrentFigureRight() {
+    let targetY = currentFigureY + 1;
+    if (!checkCollisions(currentFigure, currentFigureX, targetY)) {
+        currentFigureY = targetY;
+        drawGameField();
+        drawCurrentFigure();
+    }
+}
+
+function moveCurrentFigureLeft() {
+    let targetY = currentFigureY - 1;
+    if (!checkCollisions(currentFigure, currentFigureX, targetY)) {
+        currentFigureY = targetY;
+        drawGameField();
+        drawCurrentFigure();
+    }
+}
+
+function rotateCurrentFigureClockwise() {
+    let rotatedFigure = rotateFigureClockwise(currentFigure);
+    if (!checkCollisions(rotatedFigure, currentFigureX, currentFigureY)) {
+        currentFigure = rotatedFigure;
+        drawGameField();
+        drawCurrentFigure();
+    }
+}
+
+function rotateCurrentFigureCounterClockwise() {
+    let rotatedFigure = rotateFigureCounterClockwise(currentFigure);
+    if (!checkCollisions(rotatedFigure, currentFigureX, currentFigureY)) {
+        currentFigure = rotatedFigure;
+        drawGameField();
+        drawCurrentFigure();
+    }
+}
+
+let keyRight = document.querySelector("#key-right");
+let keyLeft = document.querySelector("#key-left");
+let keyDown = document.querySelector("#key-down");
+let keyRotateClockwise = document.querySelector("#key-clockwise");
+let keyRotateCounterClockwise = document.querySelector("#key-counter-clockwise");
+
+let startButton = document.querySelector("#start-button");
+let pauseButton = document.querySelector("#pause-button");
+
+
+keyRight.addEventListener("click", moveCurrentFigureRight);
+keyLeft.addEventListener("click", moveCurrentFigureLeft);
+keyRotateClockwise.addEventListener("click", rotateCurrentFigureClockwise);
+keyRotateCounterClockwise.addEventListener("click", rotateCurrentFigureCounterClockwise);
+
+let gameSpeed;
+let score;
+let timerId;
+
+
+function startGame() {
+    score = 0;
+    gameSpeed = 1000;
+    resetGameFieldArray();
+    drawGameField();
+    changeCurrentFigure();
+    drawIncomingFigure(incomingFigure, incomingFigureColor);
+    timerId = setTimeout(function gameIteration() {
+        currentFigureFallIteration();
+        timerId = setTimeout(gameIteration, gameSpeed);
+    }, gameSpeed);
+}
+
+
+function pauseGame() {
+    pauseButton.classList.toggle("active");
+    console.log(gameSpeed);
+    console.log(timerId);
+    if (gameSpeed) {
+        if (pauseButton.classList.contains("active")) {
+            clearTimeout(timerId);
+        } else {
+            timerId = setTimeout(function gameIteration() {
+                currentFigureFallIteration();
+                timerId = setTimeout(gameIteration, gameSpeed);
+            }, gameSpeed);
+        }
+    }
+}
+
+startButton.addEventListener("click", startGame);
+pauseButton.addEventListener("click", pauseGame);
+
