@@ -306,19 +306,16 @@ function overlapRows(rowsIndexesArray) {
     let clearedGameFieldArray = [];
     let oldArrayRowIndex;
     let clearedArrayRowIndex;
-    console.log(rowsIndexesArray);
     for (clearedArrayRowIndex = 0;
          clearedArrayRowIndex < 4 +  rowsIndexesArray.length;
          clearedArrayRowIndex++) {
         clearedGameFieldArray[clearedArrayRowIndex] = [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1];
     };
-    console.log(clearedGameFieldArray);
     for (clearedArrayRowIndex = 24;
          clearedArrayRowIndex < 27;
          clearedArrayRowIndex++) {
         clearedGameFieldArray[clearedArrayRowIndex] = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
     };
-    console.log(clearedGameFieldArray);
     for ([oldArrayRowIndex, clearedArrayRowIndex] = [23, 23];
          oldArrayRowIndex > 3;
          oldArrayRowIndex--) {
@@ -328,7 +325,6 @@ function overlapRows(rowsIndexesArray) {
         clearedGameFieldArray[clearedArrayRowIndex] = gameFieldArray[oldArrayRowIndex];
         clearedArrayRowIndex--;
     }
-    console.log(clearedGameFieldArray);
     gameFieldArray = clearedGameFieldArray;
 }
 
@@ -453,13 +449,11 @@ function processKeyLeftUnpress() {
 function processKeyDownPress() {
     downKeyPressedFlag = true;
     changeGameSpeed(0.1);
-    console.log(gameSpeed);
 };
 
 function processKeyDownUnpress() {
     downKeyPressedFlag = false;
     changeGameSpeed(10);
-    console.log(gameSpeed);
 };
 
 function processKeyRotateClockwisePress() {
@@ -536,7 +530,6 @@ function startGame() {
     drawGameField();
     changeCurrentFigure();
     drawIncomingFigure(incomingFigure, incomingFigureColor);
-    console.log(mainTimerId);
     mainTimerId = setTimeout(function gameIteration() {
         currentFigureFallIteration();
         if (gameOverFlag) {
