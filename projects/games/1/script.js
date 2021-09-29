@@ -278,7 +278,7 @@ function increaseScore(killedRowsCount) {
 
 function checkCompliteRow(row) {
     for (let i = 3; i < 13; i++) {
-        if (!i) {
+        if (!row[i]) {
             return false;
         }
     }
@@ -289,16 +289,19 @@ function overlapRows(rowsIndexesArray) {
     let clearedGameFieldArray = [];
     let oldArrayRowIndex;
     let clearedArrayRowIndex;
+    console.log(rowsIndexesArray);
     for (clearedArrayRowIndex = 0;
          clearedArrayRowIndex < 4 +  rowsIndexesArray.length;
          clearedArrayRowIndex++) {
         clearedGameFieldArray[clearedArrayRowIndex] = [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1];
     };
+    console.log(clearedGameFieldArray);
     for (clearedArrayRowIndex = 24;
          clearedArrayRowIndex < 27;
          clearedArrayRowIndex++) {
-        clearedGameFieldArray[row] = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+        clearedGameFieldArray[clearedArrayRowIndex] = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
     };
+    console.log(clearedGameFieldArray);
     for ([oldArrayRowIndex, clearedArrayRowIndex] = [23, 23];
          oldArrayRowIndex > 3;
          oldArrayRowIndex--) {
@@ -308,6 +311,7 @@ function overlapRows(rowsIndexesArray) {
         clearedGameFieldArray[clearedArrayRowIndex] = gameFieldArray[oldArrayRowIndex];
         clearedArrayRowIndex--;
     }
+    console.log(clearedGameFieldArray);
     gameFieldArray = clearedGameFieldArray;
 }
 
@@ -329,6 +333,7 @@ function currentFigureFallIteration() {
     let targetX = currentFigureX + 1;
     if (checkCollisions(currentFigure, targetX, currentFigureY)) {
         saveCurrentFigureToGameFieldArray();
+        killCompleteRows();
         changeCurrentFigure();
         drawIncomingFigure(incomingFigure, incomingFigureColor);
     } else {
@@ -396,7 +401,7 @@ let timerId;
 
 function startGame() {
     score = 0;
-    gameSpeed = 1000;
+    gameSpeed = 400;
     resetGameFieldArray();
     drawGameField();
     changeCurrentFigure();
