@@ -259,6 +259,9 @@ function saveCurrentFigureToGameFieldArray() {
     }
 }
 
+let scoreCounter = document.querySelector("#score-counter");
+
+
 function increaseScore(killedRowsCount) {
     switch (killedRowsCount) {
         case 1:
@@ -274,6 +277,7 @@ function increaseScore(killedRowsCount) {
             score += 1500;
             break;
     }
+    scoreCounter.innerHTML = score;
 }
 
 function checkCompliteRow(row) {
@@ -401,6 +405,7 @@ let timerId;
 
 function startGame() {
     score = 0;
+    scoreCounter.innerHTML = score;
     gameSpeed = 400;
     resetGameFieldArray();
     drawGameField();
