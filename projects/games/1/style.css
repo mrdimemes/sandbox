@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.active {
+    background-color: #7a7a7a;
+}
+
+.page-header {
+    text-align: center;
+    margin: 0;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.field {
+    border: solid 1px black;
+    box-sizing: border-box;
+}
+
+#game-field {
+    width: 300px;
+    height: 600px;
+}
+
+#panels {
+    width: 150px;
+    margin-left: 20px;
+    position: relative;
+}
+
+#incoming-figure-field {
+    width: 120px;
+    height: 120px;
+}
+
+#score-header {
+    font-size: 20px;
+    margin: 0;
+}
+
+#score-counter {
+    width: 100%;
+    height: 20px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.buttons {
+    display: flex;
+}
+
+.button {
+    width: 75px;
+    height: 20px;
+    border: solid 1px black;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #e1e1e1;
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(6, 25px);
+    grid-template-areas:
+        "arot arot arot crot crot crot"
+        "left left left right right right"
+        "down down down down down down";
+    position: absolute;
+    bottom: 0;
+}
+
+.key {
+    width: 100%;
+    min-width: 50px;
+    height: 40px;
+    border: solid 1px black;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.key:hover {
+    background-color: #e1e1e1;
+}
+
+#key-counter-clockwise {
+    grid-area: arot;
+}
+
+#key-clockwise {
+    grid-area: crot;
+}
+
+#key-left {
+    grid-area: left;
+}
+
+#key-down {
+    grid-area: down;
+}
+
+#key-right {
+    grid-area: right;
+}
+
+#game-over-massage {
+    display: none;
+}
+
+#game-over-massage.active {
+    display: block;
+    font-weight: bold;
+    font-size: 27px;
+    margin-top: 10px;
+    background-color: white;
+}
+
+@media screen and (max-height: 650px) {
+    #game-field {
+        width: 200px;
+        height: 400px;
+    }
+}

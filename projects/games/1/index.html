@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tetris</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <h1 class="page-header">Tetris</h1>
+    <div class="wrapper">
+        <canvas id="game-field" class="field">Your browser is unsupported.</canvas>
+        <div id="panels">
+            <canvas id="incoming-figure-field" class="field"></canvas>
+            <h2 id="score-header">score</h2>
+            <div id="score-counter" class="field"></div>
+            <div class="buttons">
+                <div id="start-button" class="button">Start</div>
+                <div id="pause-button" class="button">Pause</div>
+            </div>
+            <div id="game-over-massage">Game Over</div>
+            <div class="keypad">
+                <div id="key-counter-clockwise" class="key">counter-clockwise</div>
+                <div id="key-clockwise" class="key">clockwise</div>
+                <div id="key-left" class="key">←</div>
+                <div id="key-down" class="key">↓</div>
+                <div id="key-right" class="key">→</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
