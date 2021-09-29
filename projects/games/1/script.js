@@ -333,9 +333,26 @@ function killCompleteRows() {
     }
 }
 
+
+
+let gameSpeed;
+let score;
+let timerId;
+let gameOverMassage = document.querySelector("#game-over-massage");
+
+function gameOver() {
+    clearTimeout(timerId);
+    clearIncomingFigureField();
+    gameOverMassage.classList.toggle("active");
+}
+
 function currentFigureFallIteration() {
     let targetX = currentFigureX + 1;
     if (checkCollisions(currentFigure, targetX, currentFigureY)) {
+        if (currentFigureX < 2) {
+            gameOver();
+            return;
+        }
         saveCurrentFigureToGameFieldArray();
         killCompleteRows();
         changeCurrentFigure();
@@ -398,19 +415,23 @@ keyLeft.addEventListener("click", moveCurrentFigureLeft);
 keyRotateClockwise.addEventListener("click", rotateCurrentFigureClockwise);
 keyRotateCounterClockwise.addEventListener("click", rotateCurrentFigureCounterClockwise);
 
-let gameSpeed;
-let score;
-let timerId;
-
 
 function startGame() {
     score = 0;
     scoreCounter.innerHTML = score;
-    gameSpeed = 400;
+    if (gameOverMassage.classList.contains("active")) {
+        gameOverMassage.classList.toggle("active");
+    }
+    if (timerId) {
+        clearTimeout(timerId);
+    }
+    timerId = undefined;
+    gameSpeed = 1000;
     resetGameFieldArray();
     drawGameField();
     changeCurrentFigure();
     drawIncomingFigure(incomingFigure, incomingFigureColor);
+    console.log(timerId);
     timerId = setTimeout(function gameIteration() {
         currentFigureFallIteration();
         timerId = setTimeout(gameIteration, gameSpeed);

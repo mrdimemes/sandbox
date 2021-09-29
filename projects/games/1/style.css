@@ -43,11 +43,16 @@ body {
     height: 120px;
 }
 
+#score-header {
+    font-size: 20px;
+    margin: 0;
+}
+
 #score-counter {
     width: 100%;
     height: 20px;
-    margin-top: 15px;
-    margin-bottom: 20px;
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
 
 .buttons {
@@ -111,6 +116,17 @@ body {
 
 #key-right {
     grid-area: right;
+}
+
+#game-over-massage {
+    display: none;
+}
+
+#game-over-massage.active {
+    display: block;
+    font-weight: bold;
+    font-size: 27px;
+    margin-top: 10px;
 }
 
 @media screen and (max-height: 650px) {
