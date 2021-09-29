@@ -286,7 +286,29 @@ function checkCompliteRow(row) {
 }
 
 function overlapRows(rowsIndexesArray) {
-    
+    let clearedGameFieldArray = [];
+    let oldArrayRowIndex;
+    let clearedArrayRowIndex;
+    for (clearedArrayRowIndex = 0;
+         clearedArrayRowIndex < 4 +  rowsIndexesArray.length;
+         clearedArrayRowIndex++) {
+        clearedGameFieldArray[clearedArrayRowIndex] = [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1];
+    };
+    for (clearedArrayRowIndex = 24;
+         clearedArrayRowIndex < 27;
+         clearedArrayRowIndex++) {
+        clearedGameFieldArray[row] = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+    };
+    for ([oldArrayRowIndex, clearedArrayRowIndex] = [23, 23];
+         oldArrayRowIndex > 3;
+         oldArrayRowIndex--) {
+        if (rowsIndexesArray.indexOf(oldArrayRowIndex) != -1) {
+            continue;
+        };
+        clearedGameFieldArray[clearedArrayRowIndex] = gameFieldArray[oldArrayRowIndex];
+        clearedArrayRowIndex--;
+    }
+    gameFieldArray = clearedGameFieldArray;
 }
 
 function killCompleteRows() {
