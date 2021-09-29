@@ -339,11 +339,13 @@ let gameSpeed;
 let score;
 let timerId;
 let gameOverMassage = document.querySelector("#game-over-massage");
+let gameOverFlag = false;
 
 function gameOver() {
     clearTimeout(timerId);
     clearIncomingFigureField();
     gameOverMassage.classList.toggle("active");
+    gameOverFlag = true;
 }
 
 function currentFigureFallIteration() {
@@ -426,7 +428,7 @@ function startGame() {
         clearTimeout(timerId);
     }
     timerId = undefined;
-    gameSpeed = 1000;
+    gameSpeed = 100;
     resetGameFieldArray();
     drawGameField();
     changeCurrentFigure();
@@ -434,6 +436,9 @@ function startGame() {
     console.log(timerId);
     timerId = setTimeout(function gameIteration() {
         currentFigureFallIteration();
+        if (gameOverFlag) {
+            return;
+        };
         timerId = setTimeout(gameIteration, gameSpeed);
     }, gameSpeed);
 }
