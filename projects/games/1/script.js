@@ -261,23 +261,32 @@ function saveCurrentFigureToGameFieldArray() {
 
 let scoreCounter = document.querySelector("#score-counter");
 
+let gameSpeed;
 
-function increaseScore(killedRowsCount) {
+function changeGameSpeed(weight) {
+    gameSpeed = Math.floor(gameSpeed * weight);
+}
+
+function increaseScore(income) {
+    score += (income * 1000 / gameSpeed);
+    scoreCounter.innerHTML = Math.floor(score);
+}
+
+function increaseScoreByKilledRows(killedRowsCount) {
     switch (killedRowsCount) {
         case 1:
-            score += 100;
+            increaseScore(100);
             break;
         case 2:
-            score += 300;
+            increaseScore(300);
             break;
         case 3:
-            score += 700;
+            increaseScore(700);
             break;
         case 4:
-            score += 1500;
+            increaseScore(1500);
             break;
     }
-    scoreCounter.innerHTML = score;
 }
 
 function checkCompliteRow(row) {
@@ -329,13 +338,12 @@ function killCompleteRows() {
     let killedRowsCount = killedRowsIndexes.length;
     if (killedRowsCount) {
         overlapRows(killedRowsIndexes);
-        increaseScore(killedRowsCount);
+        increaseScoreByKilledRows(killedRowsCount);
     }
 }
 
 
 
-let gameSpeed;
 let score;
 let mainTimerId;
 let secondaryTimerId;
@@ -357,6 +365,7 @@ function currentFigureFallIteration() {
             return;
         }
         saveCurrentFigureToGameFieldArray();
+        increaseScore(5);
         killCompleteRows();
         changeCurrentFigure();
         drawIncomingFigure(incomingFigure, incomingFigureColor);
@@ -437,11 +446,13 @@ function processKeyLeftUnpress() {
 };
 
 function processKeyDownPress() {
-    gameSpeed = gameSpeed / 10;
+    changeGameSpeed(0.1);
+    console.log(gameSpeed);
 };
 
 function processKeyDownUnpress() {
-    gameSpeed = gameSpeed * 10;
+    changeGameSpeed(10);
+    console.log(gameSpeed);
 };
 
 function processKeyRotateClockwisePress() {
@@ -493,6 +504,16 @@ keyRotateClockwise.addEventListener("mouseup", processKeyRotateClockwiseUnpress)
 keyRotateCounterClockwise.addEventListener("mousedown", processKeyRotateCounterClockwisePress);
 keyRotateCounterClockwise.addEventListener("mouseup", processKeyRotateCounterClockwiseUnpress);
 
+let speedUpCounter = 1;
+let speedUpScoreLevel = 10000;
+
+function scaleGameSpeedByScore() {
+    if (score > speedUpCounter * speedUpScoreLevel) {
+        changeGameSpeed(0.9);
+        speedUpCounter++;
+    }
+}
+
 function startGame() {
     score = 0;
     scoreCounter.innerHTML = score;
@@ -514,6 +535,7 @@ function startGame() {
         if (gameOverFlag) {
             return;
         };
+        scaleGameSpeedByScore();
         mainTimerId = setTimeout(gameIteration, gameSpeed);
     }, gameSpeed);
     if (gameOverFlag) {
@@ -525,8 +547,6 @@ function startGame() {
 
 function pauseGame() {
     pauseButton.classList.toggle("active");
-    console.log(gameSpeed);
-    console.log(mainTimerId);
     if (gameSpeed) {
         if (pauseButton.classList.contains("active")) {
             clearTimeout(mainTimerId);
