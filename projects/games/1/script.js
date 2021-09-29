@@ -268,7 +268,11 @@ function changeGameSpeed(weight) {
 }
 
 function increaseScore(income) {
-    score += (income * 1000 / gameSpeed);
+    if (downKeyPressedFlag) {
+        score += (income * 100 / gameSpeed);
+    } else {
+        score += (income * 1000 / gameSpeed);
+    };
     scoreCounter.innerHTML = Math.floor(score);
 }
 
@@ -420,6 +424,7 @@ function clearSecondaryTimer() {
 }
 
 let secondaryTimerSpeed = 100;
+let downKeyPressedFlag = false;
 
 function processKeyRightPress() {
     clearSecondaryTimer();
@@ -446,11 +451,13 @@ function processKeyLeftUnpress() {
 };
 
 function processKeyDownPress() {
+    downKeyPressedFlag = true;
     changeGameSpeed(0.1);
     console.log(gameSpeed);
 };
 
 function processKeyDownUnpress() {
+    downKeyPressedFlag = false;
     changeGameSpeed(10);
     console.log(gameSpeed);
 };
