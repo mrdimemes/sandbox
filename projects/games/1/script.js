@@ -199,11 +199,11 @@ let incomingFigure;
 let incomingFigureColor;
 
 function changeCurrentFigure() {
-    if ((typeof nextFigure) == "undefined") {
+    if ((typeof incomingFigure) == "undefined") {
         [currentFigure, currentFigureColor] = getRandomFigure();
     } else {
-        currentFigure = nextFigure;
-        currentFigureColor = nextFigureColor;
+        currentFigure = incomingFigure;
+        currentFigureColor = incomingFigureColor;
     };
     [incomingFigure, incomingFigureColor] = getRandomFigure();
     currentFigureX = 0;
