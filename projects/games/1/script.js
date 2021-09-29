@@ -337,12 +337,13 @@ function killCompleteRows() {
 
 let gameSpeed;
 let score;
-let timerId;
+let mainTimerId;
+let secondaryTimerId;
 let gameOverMassage = document.querySelector("#game-over-massage");
 let gameOverFlag = false;
 
 function gameOver() {
-    clearTimeout(timerId);
+    clearTimeout(mainTimerId);
     clearIncomingFigureField();
     gameOverMassage.classList.toggle("active");
     gameOverFlag = true;
@@ -402,6 +403,71 @@ function rotateCurrentFigureCounterClockwise() {
     }
 }
 
+function clearSecondaryTimer() {
+    if (secondaryTimerId) {
+        clearTimeout(secondaryTimerId);
+        secondaryTimerId = undefined;
+    }
+}
+
+let secondaryTimerSpeed = 100;
+
+function processKeyRightPress() {
+    clearSecondaryTimer();
+    secondaryTimerId = setTimeout(function iteration() {
+        moveCurrentFigureRight();
+        secondaryTimerId = setTimeout(iteration, secondaryTimerSpeed);
+    }, 0);
+};
+
+function processKeyRightUnpress() {
+    clearSecondaryTimer();
+};
+
+function processKeyLeftPress() {
+    clearSecondaryTimer();
+    secondaryTimerId = setTimeout(function iteration() {
+        moveCurrentFigureLeft();
+        secondaryTimerId = setTimeout(iteration, secondaryTimerSpeed);
+    }, 0);
+};
+
+function processKeyLeftUnpress() {
+    clearSecondaryTimer();
+};
+
+function processKeyDownPress() {
+    gameSpeed = gameSpeed / 10;
+};
+
+function processKeyDownUnpress() {
+    gameSpeed = gameSpeed * 10;
+};
+
+function processKeyRotateClockwisePress() {
+    clearSecondaryTimer();
+    secondaryTimerId = setTimeout(function iteration() {
+        rotateCurrentFigureClockwise();
+        secondaryTimerId = setTimeout(iteration, secondaryTimerSpeed);
+    }, 0);
+};
+
+function processKeyRotateClockwiseUnpress() {
+    clearSecondaryTimer();
+};
+
+function processKeyRotateCounterClockwisePress() {
+    clearSecondaryTimer();
+    secondaryTimerId = setTimeout(function iteration() {
+        rotateCurrentFigureCounterClockwise();
+        secondaryTimerId = setTimeout(iteration, secondaryTimerSpeed);
+    }, 0);
+};
+
+function processKeyRotateCounterClockwiseUnpress() {
+    clearSecondaryTimer();
+};
+
 let keyRight = document.querySelector("#key-right");
 let keyLeft = document.querySelector("#key-left");
 let keyDown = document.querySelector("#key-down");
@@ -412,11 +478,20 @@ let startButton = document.querySelector("#start-button");
 let pauseButton = document.querySelector("#pause-button");
 
 
-keyRight.addEventListener("click", moveCurrentFigureRight);
-keyLeft.addEventListener("click", moveCurrentFigureLeft);
-keyRotateClockwise.addEventListener("click", rotateCurrentFigureClockwise);
-keyRotateCounterClockwise.addEventListener("click", rotateCurrentFigureCounterClockwise);
+keyRight.addEventListener("mousedown", processKeyRightPress);
+keyRight.addEventListener("mouseup", processKeyRightUnpress);
 
+keyLeft.addEventListener("mousedown", processKeyLeftPress);
+keyLeft.addEventListener("mouseup", processKeyLeftUnpress);
+
+keyDown.addEventListener("mousedown", processKeyDownPress);
+keyDown.addEventListener("mouseup", processKeyDownUnpress);
+
+keyRotateClockwise.addEventListener("mousedown", processKeyRotateClockwisePress);
+keyRotateClockwise.addEventListener("mouseup", processKeyRotateClockwiseUnpress);
+
+keyRotateCounterClockwise.addEventListener("mousedown", processKeyRotateCounterClockwisePress);
+keyRotateCounterClockwise.addEventListener("mouseup", processKeyRotateCounterClockwiseUnpress);
 
 function startGame() {
     score = 0;
@@ -424,37 +499,41 @@ function startGame() {
     if (gameOverMassage.classList.contains("active")) {
         gameOverMassage.classList.toggle("active");
     }
-    if (timerId) {
-        clearTimeout(timerId);
+    if (mainTimerId) {
+        clearTimeout(mainTimerId);
     }
-    timerId = undefined;
-    gameSpeed = 100;
+    mainTimerId = undefined;
+    gameSpeed = 1000;
     resetGameFieldArray();
     drawGameField();
     changeCurrentFigure();
     drawIncomingFigure(incomingFigure, incomingFigureColor);
-    console.log(timerId);
-    timerId = setTimeout(function gameIteration() {
+    console.log(mainTimerId);
+    mainTimerId = setTimeout(function gameIteration() {
         currentFigureFallIteration();
         if (gameOverFlag) {
             return;
         };
-        timerId = setTimeout(gameIteration, gameSpeed);
+        mainTimerId = setTimeout(gameIteration, gameSpeed);
     }, gameSpeed);
+    if (gameOverFlag) {
+        gameOverFlag = false;
+        startGame();
+    };
 }
 
 
 function pauseGame() {
     pauseButton.classList.toggle("active");
     console.log(gameSpeed);
-    console.log(timerId);
+    console.log(mainTimerId);
     if (gameSpeed) {
         if (pauseButton.classList.contains("active")) {
-            clearTimeout(timerId);
+            clearTimeout(mainTimerId);
         } else {
-            timerId = setTimeout(function gameIteration() {
+            mainTimerId = setTimeout(function gameIteration() {
                 currentFigureFallIteration();
-                timerId = setTimeout(gameIteration, gameSpeed);
+                mainTimerId = setTimeout(gameIteration, gameSpeed);
             }, gameSpeed);
         }
     }
