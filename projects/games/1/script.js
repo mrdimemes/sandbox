@@ -269,7 +269,7 @@ function changeGameSpeed(weight) {
 
 function increaseScore(income) {
     if (downKeyPressedFlag) {
-        score += (income * 100 / gameSpeed);
+        score += (income * 10 / gameSpeed);
     } else {
         score += (income * 1000 / gameSpeed);
     };
@@ -366,6 +366,9 @@ function currentFigureFallIteration() {
         }
         saveCurrentFigureToGameFieldArray();
         increaseScore(5);
+        if (downKeyPressedFlag) {
+            processKeyDownUnpress();
+        };
         killCompleteRows();
         changeCurrentFigure();
         drawIncomingFigure(incomingFigure, incomingFigureColor);
@@ -419,7 +422,7 @@ function clearSecondaryTimer() {
     }
 }
 
-let secondaryTimerSpeed = 100;
+let secondaryTimerSpeed = 200;
 let downKeyPressedFlag = false;
 
 function processKeyRightPress() {
@@ -447,13 +450,18 @@ function processKeyLeftUnpress() {
 };
 
 function processKeyDownPress() {
+    if (downKeyPressedFlag) {
+        return;
+    }
     downKeyPressedFlag = true;
-    changeGameSpeed(0.1);
+    changeGameSpeed(0.01);
 };
 
 function processKeyDownUnpress() {
-    downKeyPressedFlag = false;
-    changeGameSpeed(10);
+    if (downKeyPressedFlag) {
+        downKeyPressedFlag = false;
+        changeGameSpeed(100);
+    };
 };
 
 function processKeyRotateClockwisePress() {
