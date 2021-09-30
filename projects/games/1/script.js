@@ -562,3 +562,74 @@ function pauseGame() {
 startButton.addEventListener("click", startGame);
 pauseButton.addEventListener("click", pauseGame);
 
+
+function processKeyboardKeyDown(event) {
+    if (event.repeat) {return;}
+    console.log(event.code);
+    switch (event.code) {
+        case "ArrowLeft":
+            processKeyLeftPress();
+            break;
+        case "ArrowRight":
+            processKeyRightPress();
+            break;
+        case "ArrowDown":
+            processKeyDownPress();
+            break;
+        case "KeyA":
+            processKeyLeftPress();
+            break;
+        case "KeyD":
+            processKeyRightPress();
+            break;
+        case "KeyS":
+            processKeyDownPress();
+            break;
+        case "KeyQ":
+            processKeyRotateCounterClockwisePress();
+            break;
+        case "KeyE":
+            processKeyRotateClockwisePress();
+            break;
+        case "Space":
+            pauseGame();
+            break;
+        case "Enter":
+            startGame();
+            break;
+    }
+};
+
+function processKeyboardKeyUp(event) {
+    if (event.repeat) {return;}
+    console.log(event.code);
+    switch (event.code) {
+        case "ArrowLeft":
+            processKeyLeftUnpress();
+            break;
+        case "ArrowRight":
+            processKeyRightUnpress();
+            break;
+        case "ArrowDown":
+            processKeyDownUnpress();
+            break;
+        case "KeyA":
+            processKeyLeftUnpress();
+            break;
+        case "KeyD":
+            processKeyRightUnpress();
+            break;
+        case "KeyS":
+            processKeyDownUnpress();
+            break;
+        case "KeyQ":
+            processKeyRotateCounterClockwiseUnpress();
+            break;
+        case "KeyE":
+            processKeyRotateClockwiseUnpress();
+            break;
+    }
+};
+
+document.addEventListener("keydown", processKeyboardKeyDown);
+document.addEventListener("keyup", processKeyboardKeyUp);
