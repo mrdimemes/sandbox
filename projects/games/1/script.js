@@ -269,7 +269,7 @@ function changeGameSpeed(weight) {
 
 function increaseScore(income) {
     if (downKeyPressedFlag) {
-        score += (income * 100 / gameSpeed);
+        score += (income * 10 / gameSpeed);
     } else {
         score += (income * 1000 / gameSpeed);
     };
@@ -306,19 +306,16 @@ function overlapRows(rowsIndexesArray) {
     let clearedGameFieldArray = [];
     let oldArrayRowIndex;
     let clearedArrayRowIndex;
-    console.log(rowsIndexesArray);
     for (clearedArrayRowIndex = 0;
          clearedArrayRowIndex < 4 +  rowsIndexesArray.length;
          clearedArrayRowIndex++) {
         clearedGameFieldArray[clearedArrayRowIndex] = [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1];
     };
-    console.log(clearedGameFieldArray);
     for (clearedArrayRowIndex = 24;
          clearedArrayRowIndex < 27;
          clearedArrayRowIndex++) {
         clearedGameFieldArray[clearedArrayRowIndex] = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
     };
-    console.log(clearedGameFieldArray);
     for ([oldArrayRowIndex, clearedArrayRowIndex] = [23, 23];
          oldArrayRowIndex > 3;
          oldArrayRowIndex--) {
@@ -328,7 +325,6 @@ function overlapRows(rowsIndexesArray) {
         clearedGameFieldArray[clearedArrayRowIndex] = gameFieldArray[oldArrayRowIndex];
         clearedArrayRowIndex--;
     }
-    console.log(clearedGameFieldArray);
     gameFieldArray = clearedGameFieldArray;
 }
 
@@ -370,6 +366,9 @@ function currentFigureFallIteration() {
         }
         saveCurrentFigureToGameFieldArray();
         increaseScore(5);
+        if (downKeyPressedFlag) {
+            processKeyDownUnpress();
+        };
         killCompleteRows();
         changeCurrentFigure();
         drawIncomingFigure(incomingFigure, incomingFigureColor);
@@ -423,7 +422,7 @@ function clearSecondaryTimer() {
     }
 }
 
-let secondaryTimerSpeed = 100;
+let secondaryTimerSpeed = 200;
 let downKeyPressedFlag = false;
 
 function processKeyRightPress() {
@@ -451,15 +450,18 @@ function processKeyLeftUnpress() {
 };
 
 function processKeyDownPress() {
+    if (downKeyPressedFlag) {
+        return;
+    }
     downKeyPressedFlag = true;
-    changeGameSpeed(0.1);
-    console.log(gameSpeed);
+    changeGameSpeed(0.01);
 };
 
 function processKeyDownUnpress() {
-    downKeyPressedFlag = false;
-    changeGameSpeed(10);
-    console.log(gameSpeed);
+    if (downKeyPressedFlag) {
+        downKeyPressedFlag = false;
+        changeGameSpeed(100);
+    };
 };
 
 function processKeyRotateClockwisePress() {
@@ -536,7 +538,6 @@ function startGame() {
     drawGameField();
     changeCurrentFigure();
     drawIncomingFigure(incomingFigure, incomingFigureColor);
-    console.log(mainTimerId);
     mainTimerId = setTimeout(function gameIteration() {
         currentFigureFallIteration();
         if (gameOverFlag) {
@@ -569,3 +570,74 @@ function pauseGame() {
 startButton.addEventListener("click", startGame);
 pauseButton.addEventListener("click", pauseGame);
 
+
+function processKeyboardKeyDown(event) {
+    if (event.repeat) {return;}
+    console.log(event.code);
+    switch (event.code) {
+        case "ArrowLeft":
+            processKeyLeftPress();
+            break;
+        case "ArrowRight":
+            processKeyRightPress();
+            break;
+        case "ArrowDown":
+            processKeyDownPress();
+            break;
+        case "KeyA":
+            processKeyLeftPress();
+            break;
+        case "KeyD":
+            processKeyRightPress();
+            break;
+        case "KeyS":
+            processKeyDownPress();
+            break;
+        case "KeyQ":
+            processKeyRotateCounterClockwisePress();
+            break;
+        case "KeyE":
+            processKeyRotateClockwisePress();
+            break;
+        case "Space":
+            pauseGame();
+            break;
+        case "Enter":
+            startGame();
+            break;
+    }
+};
+
+function processKeyboardKeyUp(event) {
+    if (event.repeat) {return;}
+    console.log(event.code);
+    switch (event.code) {
+        case "ArrowLeft":
+            processKeyLeftUnpress();
+            break;
+        case "ArrowRight":
+            processKeyRightUnpress();
+            break;
+        case "ArrowDown":
+            processKeyDownUnpress();
+            break;
+        case "KeyA":
+            processKeyLeftUnpress();
+            break;
+        case "KeyD":
+            processKeyRightUnpress();
+            break;
+        case "KeyS":
+            processKeyDownUnpress();
+            break;
+        case "KeyQ":
+            processKeyRotateCounterClockwiseUnpress();
+            break;
+        case "KeyE":
+            processKeyRotateClockwiseUnpress();
+            break;
+    }
+};
+
+document.addEventListener("keydown", processKeyboardKeyDown);
+document.addEventListener("keyup", processKeyboardKeyUp);
