@@ -74,7 +74,12 @@ const figures = [
     ]
 ];
 
-colors = ["pink", "blue", "red", "yellow"];
+colors = [
+    "#7fffd4", "#8a2be2", "#7FFF00", "#5F9EA0",
+    "#FF7F50", "#B8860B", "#FF8C00", "#228B22",
+    "#ADFF2F", "#7CFC00", "#FF00FF", "#BA55D3",
+    "#00FA9A", "#FF4500", "#FF6347", "#B22222"
+];
 
 
 
