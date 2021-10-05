@@ -516,6 +516,9 @@ function startGame() {
     if (gameOverMassage.classList.contains("active")) {
         gameOverMassage.classList.toggle("active");
     }
+    if (pauseButton.classList.contains("active")) {
+        pauseButton.classList.toggle("active");
+    }
     if (mainTimerId) {
         clearTimeout(mainTimerId);
     }
