@@ -29,6 +29,40 @@ let incomingFigureFieldContext = incomingFigureField.getContext("2d");
 incomingFigureFieldContext.strokeStyle = "black";
 incomingFigureFieldContext.lineWidth = 2;
 
+let currentFigure;
+let currentFigureColor;
+let currentFigureX;
+let currentFigureY;
+let incomingFigure;
+let incomingFigureColor;
+
+let scoreCounter = document.querySelector("#score-counter");
+
+let gameSpeed;
+let speedUpCounter = 1;
+let speedUpScoreLevel = 10000;
+
+let score;
+let mainTimerId;
+let secondaryTimerId;
+let secondaryTimerSpeed = 200;
+
+
+let gameOverMassage = document.querySelector("#game-over-massage");
+let gameOverFlag = false;
+
+let keyRight = document.querySelector("#key-right");
+let keyLeft = document.querySelector("#key-left");
+let keyDown = document.querySelector("#key-down");
+let downKeyPressedFlag = false;
+let keyRotateClockwise = document.querySelector("#key-clockwise");
+let keyRotateCounterClockwise = document.querySelector("#key-counter-clockwise");
+
+let startButton = document.querySelector("#start-button");
+let pauseButton = document.querySelector("#pause-button");
+
+
+
 const figures = [
     [
         [0, 1, 0, 0],
@@ -80,7 +114,6 @@ colors = [
     "#ADFF2F", "#7CFC00", "#FF00FF", "#BA55D3",
     "#00FA9A", "#FF4500", "#FF6347", "#B22222"
 ];
-
 
 
 function resetGameFieldArray() {
@@ -194,15 +227,6 @@ function getRandomFigure() {
     return [newFigure, figureColor];
 };
 
-
-
-let currentFigure;
-let currentFigureColor;
-let currentFigureX;
-let currentFigureY;
-let incomingFigure;
-let incomingFigureColor;
-
 function changeCurrentFigure() {
     if ((typeof incomingFigure) == "undefined") {
         [currentFigure, currentFigureColor] = getRandomFigure();
@@ -263,10 +287,6 @@ function saveCurrentFigureToGameFieldArray() {
         }
     }
 }
-
-let scoreCounter = document.querySelector("#score-counter");
-
-let gameSpeed;
 
 function changeGameSpeed(weight) {
     gameSpeed = Math.floor(gameSpeed * weight);
@@ -347,14 +367,6 @@ function killCompleteRows() {
     }
 }
 
-
-
-let score;
-let mainTimerId;
-let secondaryTimerId;
-let gameOverMassage = document.querySelector("#game-over-massage");
-let gameOverFlag = false;
-
 function gameOver() {
     clearTimeout(mainTimerId);
     clearIncomingFigureField();
@@ -427,8 +439,6 @@ function clearSecondaryTimer() {
     }
 }
 
-let secondaryTimerSpeed = 200;
-let downKeyPressedFlag = false;
 
 function processKeyRightPress() {
     clearSecondaryTimer();
@@ -493,34 +503,6 @@ function processKeyRotateCounterClockwiseUnpress() {
     clearSecondaryTimer();
 };
 
-let keyRight = document.querySelector("#key-right");
-let keyLeft = document.querySelector("#key-left");
-let keyDown = document.querySelector("#key-down");
-let keyRotateClockwise = document.querySelector("#key-clockwise");
-let keyRotateCounterClockwise = document.querySelector("#key-counter-clockwise");
-
-let startButton = document.querySelector("#start-button");
-let pauseButton = document.querySelector("#pause-button");
-
-
-keyRight.addEventListener("mousedown", processKeyRightPress);
-keyRight.addEventListener("mouseup", processKeyRightUnpress);
-
-keyLeft.addEventListener("mousedown", processKeyLeftPress);
-keyLeft.addEventListener("mouseup", processKeyLeftUnpress);
-
-keyDown.addEventListener("mousedown", processKeyDownPress);
-keyDown.addEventListener("mouseup", processKeyDownUnpress);
-
-keyRotateClockwise.addEventListener("mousedown", processKeyRotateClockwisePress);
-keyRotateClockwise.addEventListener("mouseup", processKeyRotateClockwiseUnpress);
-
-keyRotateCounterClockwise.addEventListener("mousedown", processKeyRotateCounterClockwisePress);
-keyRotateCounterClockwise.addEventListener("mouseup", processKeyRotateCounterClockwiseUnpress);
-
-let speedUpCounter = 1;
-let speedUpScoreLevel = 10000;
-
 function scaleGameSpeedByScore() {
     if (score > speedUpCounter * speedUpScoreLevel) {
         changeGameSpeed(0.9);
@@ -571,10 +553,6 @@ function pauseGame() {
         }
     }
 }
-
-startButton.addEventListener("click", startGame);
-pauseButton.addEventListener("click", pauseGame);
-
 
 function processKeyboardKeyDown(event) {
     if (event.repeat) {return;}
@@ -643,6 +621,24 @@ function processKeyboardKeyUp(event) {
             break;
     }
 };
+
+keyRight.addEventListener("mousedown", processKeyRightPress);
+keyRight.addEventListener("mouseup", processKeyRightUnpress);
+
+keyLeft.addEventListener("mousedown", processKeyLeftPress);
+keyLeft.addEventListener("mouseup", processKeyLeftUnpress);
+
+keyDown.addEventListener("mousedown", processKeyDownPress);
+keyDown.addEventListener("mouseup", processKeyDownUnpress);
+
+keyRotateClockwise.addEventListener("mousedown", processKeyRotateClockwisePress);
+keyRotateClockwise.addEventListener("mouseup", processKeyRotateClockwiseUnpress);
+
+keyRotateCounterClockwise.addEventListener("mousedown", processKeyRotateCounterClockwisePress);
+keyRotateCounterClockwise.addEventListener("mouseup", processKeyRotateCounterClockwiseUnpress);
+
+startButton.addEventListener("click", startGame);
+pauseButton.addEventListener("click", pauseGame);
 
 document.addEventListener("keydown", processKeyboardKeyDown);
 document.addEventListener("keyup", processKeyboardKeyUp);
