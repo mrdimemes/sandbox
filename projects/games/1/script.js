@@ -625,20 +625,20 @@ function processKeyboardKeyUp(event) {
     }
 };
 
-keyRight.addEventListener("mousedown", processKeyRightPress);
-keyRight.addEventListener("mouseup", processKeyRightUnpress);
+keyRight.addEventListener("pointerdown", processKeyRightPress);
+keyRight.addEventListener("pointerup", processKeyRightUnpress);
 
-keyLeft.addEventListener("mousedown", processKeyLeftPress);
-keyLeft.addEventListener("mouseup", processKeyLeftUnpress);
+keyLeft.addEventListener("pointerdown", processKeyLeftPress);
+keyLeft.addEventListener("pointerup", processKeyLeftUnpress);
 
-keyDown.addEventListener("mousedown", processKeyDownPress);
-keyDown.addEventListener("mouseup", processKeyDownUnpress);
+keyDown.addEventListener("pointerdown", processKeyDownPress);
+keyDown.addEventListener("pointerup", processKeyDownUnpress);
 
-keyRotateClockwise.addEventListener("mousedown", processKeyRotateClockwisePress);
-keyRotateClockwise.addEventListener("mouseup", processKeyRotateClockwiseUnpress);
+keyRotateClockwise.addEventListener("pointerdown", processKeyRotateClockwisePress);
+keyRotateClockwise.addEventListener("pointerup", processKeyRotateClockwiseUnpress);
 
-keyRotateCounterClockwise.addEventListener("mousedown", processKeyRotateCounterClockwisePress);
-keyRotateCounterClockwise.addEventListener("mouseup", processKeyRotateCounterClockwiseUnpress);
+keyRotateCounterClockwise.addEventListener("pointerdown", processKeyRotateCounterClockwisePress);
+keyRotateCounterClockwise.addEventListener("pointerup", processKeyRotateCounterClockwiseUnpress);
 
 startButton.addEventListener("click", startGame);
 pauseButton.addEventListener("click", pauseGame);
