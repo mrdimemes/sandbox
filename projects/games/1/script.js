@@ -631,6 +631,9 @@ keyRight.addEventListener("pointerup", (event) => {
     event.preventDefault();
     processKeyRightUnpress();
 });
+keyRight.addEventListener("contextmenu", (event) => {
+    event.preventDefault();
+});
 
 keyLeft.addEventListener("pointerdown", (event) => {
     event.preventDefault();
@@ -639,6 +642,9 @@ keyLeft.addEventListener("pointerdown", (event) => {
 keyLeft.addEventListener("pointerup", (event) => {
     event.preventDefault();
     processKeyLeftUnpress();
+});
+keyLeft.addEventListener("contextmenu", (event) => {
+    event.preventDefault();
 });
 
 keyDown.addEventListener("pointerdown", (event) => {
@@ -649,6 +655,9 @@ keyDown.addEventListener("pointerup", (event) => {
     event.preventDefault();
     processKeyDownUnpress();
 });
+keyDown.addEventListener("contextmenu", (event) => {
+    event.preventDefault();
+});
 
 keyRotateClockwise.addEventListener("pointerdown", (event) => {
     event.preventDefault();
@@ -657,6 +666,9 @@ keyRotateClockwise.addEventListener("pointerdown", (event) => {
 keyRotateClockwise.addEventListener("pointerup", (event) => {
     event.preventDefault();
     processKeyRotateClockwiseUnpress();
+});
+keyRotateClockwise.addEventListener("contextmenu", (event) => {
+    event.preventDefault();
 });
 
 keyRotateCounterClockwise.addEventListener("pointerdown", (event) => {
@@ -667,6 +679,9 @@ keyRotateCounterClockwise.addEventListener("pointerup", (event) => {
     event.preventDefault();
     processKeyRotateCounterClockwiseUnpress();
 });
+keyRotateCounterClockwise.addEventListener("contextmenu", (event) => {
+    event.preventDefault();
+});
 
 startButton.addEventListener("click", startGame);
 pauseButton.addEventListener("click", pauseGame);
@@ -674,7 +689,14 @@ pauseButton.addEventListener("click", pauseGame);
 startButton.addEventListener("pointerdown", (event) => {
     event.preventDefault();
 });
+startButton.addEventListener("contextmenu", (event) => {
+    event.preventDefault();
+});
+
 pauseButton.addEventListener("pointerdown", (event) => {
+    event.preventDefault();
+});
+pauseButton.addEventListener("contextmenu", (event) => {
     event.preventDefault();
 });
 
