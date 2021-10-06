@@ -623,23 +623,60 @@ function processKeyboardKeyUp(event) {
     }
 };
 
-keyRight.addEventListener("pointerdown", processKeyRightPress);
-keyRight.addEventListener("pointerup", processKeyRightUnpress);
+keyRight.addEventListener("pointerdown", (event) => {
+    event.preventDefault();
+    processKeyRightPress();
+});
+keyRight.addEventListener("pointerup", (event) => {
+    event.preventDefault();
+    processKeyRightUnpress();
+});
 
-keyLeft.addEventListener("pointerdown", processKeyLeftPress);
-keyLeft.addEventListener("pointerup", processKeyLeftUnpress);
+keyLeft.addEventListener("pointerdown", (event) => {
+    event.preventDefault();
+    processKeyLeftPress();
+});
+keyLeft.addEventListener("pointerup", (event) => {
+    event.preventDefault();
+    processKeyLeftUnpress();
+});
 
-keyDown.addEventListener("pointerdown", processKeyDownPress);
-keyDown.addEventListener("pointerup", processKeyDownUnpress);
+keyDown.addEventListener("pointerdown", (event) => {
+    event.preventDefault();
+    processKeyDownPress();
+});
+keyDown.addEventListener("pointerup", (event) => {
+    event.preventDefault();
+    processKeyDownUnpress();
+});
 
-keyRotateClockwise.addEventListener("pointerdown", processKeyRotateClockwisePress);
-keyRotateClockwise.addEventListener("pointerup", processKeyRotateClockwiseUnpress);
+keyRotateClockwise.addEventListener("pointerdown", (event) => {
+    event.preventDefault();
+    processKeyRotateClockwisePress();
+});
+keyRotateClockwise.addEventListener("pointerup", (event) => {
+    event.preventDefault();
+    processKeyRotateClockwiseUnpress();
+});
 
-keyRotateCounterClockwise.addEventListener("pointerdown", processKeyRotateCounterClockwisePress);
-keyRotateCounterClockwise.addEventListener("pointerup", processKeyRotateCounterClockwiseUnpress);
+keyRotateCounterClockwise.addEventListener("pointerdown", (event) => {
+    event.preventDefault();
+    processKeyRotateCounterClockwisePress();
+});
+keyRotateCounterClockwise.addEventListener("pointerup", (event) => {
+    event.preventDefault();
+    processKeyRotateCounterClockwiseUnpress();
+});
 
 startButton.addEventListener("click", startGame);
 pauseButton.addEventListener("click", pauseGame);
+
+startButton.addEventListener("pointerdown", (event) => {
+    event.preventDefault();
+});
+pauseButton.addEventListener("pointerdown", (event) => {
+    event.preventDefault();
+});
 
 document.addEventListener("keydown", processKeyboardKeyDown);
 document.addEventListener("keyup", processKeyboardKeyUp);
