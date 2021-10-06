@@ -559,7 +559,6 @@ function pauseGame() {
 
 function processKeyboardKeyDown(event) {
     if (event.repeat) {return;}
-    console.log(event.code);
     switch (event.code) {
         case "ArrowLeft":
             processKeyLeftPress();
@@ -596,7 +595,6 @@ function processKeyboardKeyDown(event) {
 
 function processKeyboardKeyUp(event) {
     if (event.repeat) {return;}
-    console.log(event.code);
     switch (event.code) {
         case "ArrowLeft":
             processKeyLeftUnpress();
