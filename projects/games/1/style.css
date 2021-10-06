@@ -136,3 +136,278 @@ body {
         height: 400px;
     }
 }
+
+@media screen and (max-width: 1024px) {
+    body {
+        display: block;
+    }
+
+    .page-header {
+        display: none;
+    }
+
+    .wrapper {
+        display: block;
+    }
+
+    #game-field {
+        margin-top: 25px;
+        width: 500px;
+        height: 1000px;
+    }
+
+    #panels {
+        width: auto;
+        margin: 0;
+        position: static;
+    }
+
+    #incoming-figure-field {
+        width: 240px;
+        height: 240px;
+        position: absolute;
+        top: 3px;
+        right: 3px;
+        background-color: white;
+        opacity: 0.75;
+    }
+
+    #score-counter {
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        margin-top: 0;
+        width: 240px;
+        height: 40px;
+        font-size: 27px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0.75;
+        background-color: white;
+    }
+
+    #score-header {
+        display: none;
+    }
+
+    .buttons {
+        position: absolute;
+        top: 50px;
+        left: 3px;
+    }
+
+    .button {
+        width: 120px;
+        height: 30px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0.75;
+        font-size: 27px;
+    }
+
+    .keypad {
+        display: block;
+        position: static;
+    }
+
+    .key {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        background-color: white;
+        opacity: 0.6;
+        font-size: 25px;
+    }
+
+    #key-counter-clockwise {
+        position: absolute;
+        bottom: 320px;
+        left: 50px;
+    }
+
+    #key-clockwise {
+        position: absolute;
+        bottom: 320px;
+        right: 50px;
+    }
+
+    #key-left {
+        position: absolute;
+        bottom: 100px;
+        left: 50px;
+    }
+
+    #key-down {
+        position: absolute;
+        bottom: 540px;
+        left: 50px;
+    }
+
+    #key-right {
+        position: absolute;
+        bottom: 100px;
+        right: 50px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #game-field {
+        width: 400px;
+        height: 800px;
+    }
+
+    #incoming-figure-field {
+        width: 180px;
+        height: 180px;
+    }
+
+    .key {
+        width: 150px;
+        height: 150px;
+    }
+
+    #key-counter-clockwise {
+        bottom: 270px;
+        left: 25px;
+    }
+
+    #key-clockwise {
+        bottom: 270px;
+        right: 25px;
+    }
+
+    #key-left {
+        left: 25px;
+    }
+
+    #key-down {
+        bottom: 440px;
+        left: 25px;
+    }
+
+    #key-right {
+        right: 25px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #game-field {
+        width: 300px;
+        height: 600px;
+    }
+
+    #incoming-figure-field {
+        width: 90px;
+        height: 90px;
+    }
+
+    #score-counter {
+        width: 200px;
+        height: 30px;
+        font-size: 20px;
+    }
+
+    .buttons {
+        top: 40px;
+    }
+
+    .button {
+        width: 100px;
+        height: 25px;
+        font-size: 20px;
+    }
+
+    .key {
+        width: 100px;
+        height: 100px;
+        font-size: 20px;
+    }
+
+    #key-counter-clockwise {
+        bottom: 220px;
+        left: 20px;
+    }
+
+    #key-clockwise {
+        bottom: 220px;
+        right: 20px;
+    }
+
+    #key-left {
+        left: 20px;
+    }
+
+    #key-down {
+        bottom: 340px;
+        left: 20px;
+    }
+
+    #key-right {
+        right: 20px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    #game-field {
+        width: 200px;
+        height: 400px;
+    }
+
+    #incoming-figure-field {
+        width: 78px;
+        height: 78px;
+    }
+
+    #score-counter {
+        width: 150px;
+        height: 20px;
+        font-size: 15px;
+    }
+
+    .buttons {
+        top: 25px;
+    }
+
+    .button {
+        width: 75px;
+        height: 20px;
+        font-size: 15px;
+    }
+
+    .key {
+        width: 75px;
+        height: 75px;
+        font-size: 15px;
+    }
+
+    #key-counter-clockwise {
+        bottom: 190px;
+        left: 15px;
+    }
+
+    #key-clockwise {
+        bottom: 190px;
+        right: 15px;
+    }
+
+    #key-left {
+        left: 15px;
+    }
+
+    #key-down {
+        bottom: 280px;
+        left: 15px;
+    }
+
+    #key-right {
+        right: 15px;
+    }
+}
+
