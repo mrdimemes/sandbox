@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+}
+
+.game-field {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #64c29e;
+}
+
+.game-field-tile {
+    width: 100px;
+    height: 100px;
+    background-color: #fcac45;
+}
