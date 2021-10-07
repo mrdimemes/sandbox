@@ -34,24 +34,48 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     spawnNewNumber();
 
+    function getRow(rowIndex) {
+        return [
+            parseInt(tilesArray[4 * rowIndex].innerHTML),
+            parseInt(tilesArray[4 * rowIndex + 1].innerHTML),
+            parseInt(tilesArray[4 * rowIndex + 2].innerHTML),
+            parseInt(tilesArray[4 * rowIndex + 3].innerHTML)
+        ];
+    }
+
+    function setRow(rowIndex, newRow) {
+        tilesArray[4 * rowIndex].innerHTML = newRow[0];
+        tilesArray[4 * rowIndex + 1].innerHTML = newRow[1];
+        tilesArray[4 * rowIndex + 2].innerHTML = newRow[2];
+        tilesArray[4 * rowIndex + 3].innerHTML = newRow[3];
+    }
+
+    function getColumn(columnIndex) {
+        return [
+            parseInt(tilesArray[columnIndex].innerHTML),
+            parseInt(tilesArray[columnIndex + 4].innerHTML),
+            parseInt(tilesArray[columnIndex + 8].innerHTML),
+            parseInt(tilesArray[columnIndex + 12].innerHTML)
+        ];
+    }
+
+    function setColumn(columnIndex, newColumn) {
+        tilesArray[columnIndex].innerHTML = newColumn[0];
+        tilesArray[columnIndex + 4].innerHTML = newColumn[1];
+        tilesArray[columnIndex + 8].innerHTML = newColumn[2];
+        tilesArray[columnIndex + 12].innerHTML = newColumn[3];
+    }
+
     function swipeRight() {
         let row;
         let nonZeroRow;
         let zeroRow;
         for (let i = 0; i < 4; i++) {
-            row = [
-                parseInt(tilesArray[4 * i].innerHTML),
-                parseInt(tilesArray[4 * i + 1].innerHTML),
-                parseInt(tilesArray[4 * i + 2].innerHTML),
-                parseInt(tilesArray[4 * i + 3].innerHTML)
-            ];
+            row = getRow(i);
             nonZeroRow = row.filter(num => num);
             zeroRow = Array(4 - nonZeroRow.length).fill(0);
             row = zeroRow.concat(nonZeroRow);
-            tilesArray[4 * i].innerHTML = row[0];
-            tilesArray[4 * i + 1].innerHTML = row[1];
-            tilesArray[4 * i + 2].innerHTML = row[2];
-            tilesArray[4 * i + 3].innerHTML = row[3];
+            setRow(i, row);
         }
     }
 
@@ -60,61 +84,37 @@ document.addEventListener("DOMContentLoaded", () => {
         let nonZeroRow;
         let zeroRow;
         for (let i = 0; i < 4; i++) {
-            row = [
-                parseInt(tilesArray[4 * i].innerHTML),
-                parseInt(tilesArray[4 * i + 1].innerHTML),
-                parseInt(tilesArray[4 * i + 2].innerHTML),
-                parseInt(tilesArray[4 * i + 3].innerHTML)
-            ];
+            row = getRow(i);
             nonZeroRow = row.filter(num => num);
             zeroRow = Array(4 - nonZeroRow.length).fill(0);
             row = nonZeroRow.concat(zeroRow);
-            tilesArray[4 * i].innerHTML = row[0];
-            tilesArray[4 * i + 1].innerHTML = row[1];
-            tilesArray[4 * i + 2].innerHTML = row[2];
-            tilesArray[4 * i + 3].innerHTML = row[3];
+            setRow(i, row);
         }
     }
 
     function swipeUp() {
-        let row;
-        let nonZeroRow;
-        let zeroRow;
+        let column;
+        let nonZeroColumn;
+        let zeroColumn;
         for (let i = 0; i < 4; i++) {
-            row = [
-                parseInt(tilesArray[i].innerHTML),
-                parseInt(tilesArray[i + 4].innerHTML),
-                parseInt(tilesArray[i + 8].innerHTML),
-                parseInt(tilesArray[i + 12].innerHTML)
-            ];
-            nonZeroRow = row.filter(num => num);
-            zeroRow = Array(4 - nonZeroRow.length).fill(0);
-            row = nonZeroRow.concat(zeroRow);
-            tilesArray[i].innerHTML = row[0];
-            tilesArray[i + 4].innerHTML = row[1];
-            tilesArray[i + 8].innerHTML = row[2];
-            tilesArray[i + 12].innerHTML = row[3];
+            column = getColumn(i);
+            nonZeroColumn = column.filter(num => num);
+            zeroColumn = Array(4 - nonZeroColumn.length).fill(0);
+            column = nonZeroColumn.concat(zeroColumn);
+            setColumn(i, column);
         }
     }
 
     function swipeDown() {
-        let row;
-        let nonZeroRow;
-        let zeroRow;
+        let column;
+        let nonZeroColumn;
+        let zeroColumn;
         for (let i = 0; i < 4; i++) {
-            row = [
-                parseInt(tilesArray[i].innerHTML),
-                parseInt(tilesArray[i + 4].innerHTML),
-                parseInt(tilesArray[i + 8].innerHTML),
-                parseInt(tilesArray[i + 12].innerHTML)
-            ];
-            nonZeroRow = row.filter(num => num);
-            zeroRow = Array(4 - nonZeroRow.length).fill(0);
-            row = zeroRow.concat(nonZeroRow);
-            tilesArray[i].innerHTML = row[0];
-            tilesArray[i + 4].innerHTML = row[1];
-            tilesArray[i + 8].innerHTML = row[2];
-            tilesArray[i + 12].innerHTML = row[3];
+            column = getColumn(i);
+            nonZeroColumn = column.filter(num => num);
+            zeroColumn = Array(4 - nonZeroColumn.length).fill(0);
+            column = zeroColumn.concat(nonZeroColumn);
+            setColumn(i, column);
         }
     }
 })
