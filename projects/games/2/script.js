@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     spawnNewNumber();
 
+    // swiping functional
     function getRow(rowIndex) {
         return [
             parseInt(tilesArray[4 * rowIndex].innerHTML),
@@ -66,55 +67,40 @@ document.addEventListener("DOMContentLoaded", () => {
         tilesArray[columnIndex + 12].innerHTML = newColumn[3];
     }
 
-    function swipeRight() {
-        let row;
-        let nonZeroRow;
-        let zeroRow;
+    function directConcatenation(firstArray, secondArray) {
+        return firstArray.concat(secondArray);
+    }
+
+    function reverseConcatenation(firstArray, secondArray) {
+        return secondArray.concat(firstArray);
+    }
+
+    function swipe(getFunction, concatFunction, setFunction) {
+        let fieldItem;
+        let nonZeroFieldItem;
+        let zeroFieldItem;
         for (let i = 0; i < 4; i++) {
-            row = getRow(i);
-            nonZeroRow = row.filter(num => num);
-            zeroRow = Array(4 - nonZeroRow.length).fill(0);
-            row = zeroRow.concat(nonZeroRow);
-            setRow(i, row);
+            fieldItem = getFunction(i);
+            nonZeroFieldItem = fieldItem.filter(num => num);
+            zeroFieldItem = Array(4 - nonZeroFieldItem.length).fill(0);
+            fieldItem = concatFunction(nonZeroFieldItem, zeroFieldItem);
+            setFunction(i, fieldItem);
         }
+    }
+
+    function swipeRight() {
+        swipe(getRow, reverseConcatenation, setRow);
     }
 
     function swipeLeft() {
-        let row;
-        let nonZeroRow;
-        let zeroRow;
-        for (let i = 0; i < 4; i++) {
-            row = getRow(i);
-            nonZeroRow = row.filter(num => num);
-            zeroRow = Array(4 - nonZeroRow.length).fill(0);
-            row = nonZeroRow.concat(zeroRow);
-            setRow(i, row);
-        }
+        swipe(getRow, directConcatenation, setRow);
     }
 
     function swipeUp() {
-        let column;
-        let nonZeroColumn;
-        let zeroColumn;
-        for (let i = 0; i < 4; i++) {
-            column = getColumn(i);
-            nonZeroColumn = column.filter(num => num);
-            zeroColumn = Array(4 - nonZeroColumn.length).fill(0);
-            column = nonZeroColumn.concat(zeroColumn);
-            setColumn(i, column);
-        }
+        swipe(getColumn, directConcatenation, setColumn);
     }
 
     function swipeDown() {
-        let column;
-        let nonZeroColumn;
-        let zeroColumn;
-        for (let i = 0; i < 4; i++) {
-            column = getColumn(i);
-            nonZeroColumn = column.filter(num => num);
-            zeroColumn = Array(4 - nonZeroColumn.length).fill(0);
-            column = zeroColumn.concat(nonZeroColumn);
-            setColumn(i, column);
-        }
+        swipe(getColumn, reverseConcatenation, setColumn);
     }
 })
