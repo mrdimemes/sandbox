@@ -75,6 +75,26 @@ document.addEventListener("DOMContentLoaded", () => {
         return secondArray.concat(firstArray);
     }
 
+    function combineNumbers(nonZeroFieldItem) {
+        let combinedArray = [];
+        let numberMemoryCell = nonZeroFieldItem[0];
+        for (let i = 1; i < nonZeroFieldItem.length; i++) {
+            if (nonZeroFieldItem[i] == numberMemoryCell) {
+                numberMemoryCell += nonZeroFieldItem[i];
+            } else {
+                combinedArray.push(numberMemoryCell);
+                numberMemoryCell = nonZeroFieldItem[i];
+            }
+        }
+        return combinedArray;
+    }
+
+    function reverseCombineNumbers(nonZeroFieldItem) {
+        let reversedFieldItem = nonZeroFieldItem.slice().reverse();
+        let combinedArray = combineNumbers(reversedFieldItem);
+        return combinedArray.reverse();
+    }
+
     function swipe(getFunction, concatFunction, setFunction) {
         let fieldItem;
         let nonZeroFieldItem;
