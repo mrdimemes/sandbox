@@ -33,6 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
     spawnNewNumber();
+    spawnNewNumber();
+    spawnNewNumber();
+    spawnNewNumber();
+    spawnNewNumber();
 
     // swiping functional
     function getRow(rowIndex) {
@@ -77,14 +81,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function combineNumbers(nonZeroFieldItem) {
         let combinedArray = [];
-        let numberMemoryCell = nonZeroFieldItem[0];
-        for (let i = 1; i < nonZeroFieldItem.length; i++) {
-            if (nonZeroFieldItem[i] == numberMemoryCell) {
-                numberMemoryCell += nonZeroFieldItem[i];
-            } else {
-                combinedArray.push(numberMemoryCell);
-                numberMemoryCell = nonZeroFieldItem[i];
+        if (nonZeroFieldItem.length) {
+            let numberMemoryCell = nonZeroFieldItem[0];
+            for (let i = 1; i < nonZeroFieldItem.length; i++) {
+                if (nonZeroFieldItem[i] == numberMemoryCell) {
+                    numberMemoryCell += nonZeroFieldItem[i];
+                } else {
+                    combinedArray.push(numberMemoryCell);
+                    numberMemoryCell = nonZeroFieldItem[i];
+                }
             }
+            combinedArray.push(numberMemoryCell);
         }
         return combinedArray;
     }
