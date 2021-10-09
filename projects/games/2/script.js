@@ -95,13 +95,14 @@ document.addEventListener("DOMContentLoaded", () => {
         return combinedArray.reverse();
     }
 
-    function swipe(getFunction, concatFunction, setFunction) {
+    function swipe(getFunction, combineNumbersFunction, concatFunction, setFunction) {
         let fieldItem;
         let nonZeroFieldItem;
         let zeroFieldItem;
         for (let i = 0; i < 4; i++) {
             fieldItem = getFunction(i);
             nonZeroFieldItem = fieldItem.filter(num => num);
+            nonZeroFieldItem = combineNumbersFunction(nonZeroFieldItem);
             zeroFieldItem = Array(4 - nonZeroFieldItem.length).fill(0);
             fieldItem = concatFunction(nonZeroFieldItem, zeroFieldItem);
             setFunction(i, fieldItem);
@@ -109,18 +110,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function swipeRight() {
-        swipe(getRow, reverseConcatenation, setRow);
+        swipe(getRow, reverseCombineNumbers, reverseConcatenation, setRow);
     }
 
     function swipeLeft() {
-        swipe(getRow, directConcatenation, setRow);
+        swipe(getRow, combineNumbers, directConcatenation, setRow);
     }
 
     function swipeUp() {
-        swipe(getColumn, directConcatenation, setColumn);
+        swipe(getColumn, combineNumbers, directConcatenation, setColumn);
     }
 
     function swipeDown() {
-        swipe(getColumn, reverseConcatenation, setColumn);
+        swipe(getColumn, reverseCombineNumbers, reverseConcatenation, setColumn);
     }
 })
