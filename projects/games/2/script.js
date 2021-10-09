@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
     const gameField = document.querySelector(".game-field");
     const scoreField = document.querySelector(".score-field");
+    const gameOverField = document.querySelector(".game-over-field");
+    const winField = document.querySelector(".win-field");
+
 
     let tilesArray = [];
     let score = 0;
@@ -34,13 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     }
-    spawnNewNumber();
-    spawnNewNumber();
-    spawnNewNumber();
-    spawnNewNumber();
-    spawnNewNumber();
-    spawnNewNumber();
-    spawnNewNumber();
+
 
     // score counting functional
     function increaseScore(income) {
@@ -56,6 +53,34 @@ document.addEventListener("DOMContentLoaded", () => {
         refreshScore();
     }
     refreshScore();
+
+    // new game functional
+    function clearNumbers() {
+        for (let i = 0; i < tilesArray.length; i++) {
+            tilesArray[i].innerHTML = 0;
+        }
+    }
+
+    function newGame() {
+        clearNumbers();
+        spawnNewNumber();
+        score = 0;
+        refreshScore();
+    }
+
+    // game over functional
+    function gameOver() {
+        if (gameOverField.classList.contains("active")) {
+            gameOverField.classList.add("active");
+        }
+    }
+
+    // win functional
+    function win() {
+        if (winField.classList.contains("active")) {
+            winField.classList.add("active");
+        }
+    }
 
     // swiping functional
     function getRow(rowIndex) {
