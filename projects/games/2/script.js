@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const scoreField = document.querySelector(".score-field");
     const gameOverField = document.querySelector(".game-over-field");
     const winField = document.querySelector(".win-field");
-
+    const newGameButton = document.querySelector(".new-game-button");
 
     let tilesArray = [];
     let score = 0;
@@ -64,9 +64,12 @@ document.addEventListener("DOMContentLoaded", () => {
     function newGame() {
         clearNumbers();
         spawnNewNumber();
+        spawnNewNumber();
         score = 0;
         refreshScore();
     }
+
+    newGameButton.addEventListener("click", newGame);
 
     // game over functional
     function gameOver() {
