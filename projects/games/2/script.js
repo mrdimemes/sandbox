@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
     const gameField = document.querySelector(".game-field");
+    const scoreField = document.querySelector(".score-field");
 
     let tilesArray = [];
+    let score = 0;
 
     // creating tiles
     function createGameTiles() {
@@ -37,6 +39,23 @@ document.addEventListener("DOMContentLoaded", () => {
     spawnNewNumber();
     spawnNewNumber();
     spawnNewNumber();
+    spawnNewNumber();
+    spawnNewNumber();
+
+    // score counting functional
+    function increaseScore(income) {
+        score += income;
+    }
+
+    function refreshScore() {
+        scoreField.innerHTML = score;
+    }
+
+    function scoreIteration(income) {
+        increaseScore(income);
+        refreshScore();
+    }
+    refreshScore();
 
     // swiping functional
     function getRow(rowIndex) {
@@ -86,6 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
             for (let i = 1; i < nonZeroFieldItem.length; i++) {
                 if (nonZeroFieldItem[i] == numberMemoryCell) {
                     numberMemoryCell += nonZeroFieldItem[i];
+                    scoreIteration(numberMemoryCell);
                 } else {
                     combinedArray.push(numberMemoryCell);
                     numberMemoryCell = nonZeroFieldItem[i];
@@ -131,4 +151,5 @@ document.addEventListener("DOMContentLoaded", () => {
     function swipeDown() {
         swipe(getColumn, reverseCombineNumbers, reverseConcatenation, setColumn);
     }
+    swipeLeft();
 })
