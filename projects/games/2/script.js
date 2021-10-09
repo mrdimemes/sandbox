@@ -179,5 +179,25 @@ document.addEventListener("DOMContentLoaded", () => {
     function swipeDown() {
         swipe(getColumn, reverseCombineNumbers, reverseConcatenation, setColumn);
     }
-    swipeLeft();
+
+    function processKeyboardInteraction(event) {
+        if (event.repeat) {return;}
+        switch (event.code) {
+            case "ArrowLeft":
+                swipeLeft();
+                break;
+            case "ArrowRight":
+                swipeRight();
+                break;
+            case "ArrowDown":
+                swipeDown();
+                break;
+            case "ArrowUp":
+                swipeUp();
+                break;
+        }
+    };
+
+    document.addEventListener("keydown", processKeyboardInteraction);
+
 })
