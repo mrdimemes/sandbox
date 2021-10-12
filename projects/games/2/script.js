@@ -209,7 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!isArraysEqual(numbersArrayCurrentState, numbersArray)) {
                 numbersArray = numbersArrayCurrentState;
                 return true;
-            };
+            }
         }
         return false;
     }
@@ -229,6 +229,10 @@ document.addEventListener("DOMContentLoaded", () => {
             case "ArrowUp":
                 swipeUp();
                 break;
+        }
+        refreshGameTiles();
+        if (!isNextSwipeAvailable()) {
+            gameOver();
         }
     };
 
