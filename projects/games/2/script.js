@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const newGameButton = document.querySelector(".new-game-button");
 
     let tilesArray = [];
+    let numbersArray = [];
     let score = 0;
 
     // creating tiles
@@ -17,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
             tile.innerHTML = "0";
             gameField.appendChild(tile);
             tilesArray.push(tile);
+            numbersArray.push(0);
         }
     }
     createGameTiles();
@@ -31,13 +33,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         while (true) {
             randomIndex = Math.floor(Math.random() * 15);
-            if (tilesArray[randomIndex].innerHTML == 0) {
-                tilesArray[randomIndex].innerHTML = randomValue;
+            if (numbersArray[randomIndex] == 0) {
+                numbersArray[randomIndex] = randomValue;
                 break;
             }
         }
     }
 
+    function refreshGameTiles() {
+        for (let i = 0; i < 16; i++) {
+            tilesArray[i].innerHTML = numbersArray[i];
+        }
+    }
 
     // score counting functional
     function increaseScore(income) {
@@ -56,8 +63,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // new game functional
     function clearNumbers() {
-        for (let i = 0; i < tilesArray.length; i++) {
+        for (let i = 0; i < 16; i++) {
             tilesArray[i].innerHTML = 0;
+            numbersArray[i] = 0;
         }
     }
 
@@ -67,6 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
         spawnNewNumber();
         score = 0;
         refreshScore();
+        refreshGameTiles();
     }
 
     newGameButton.addEventListener("click", newGame);
@@ -88,34 +97,34 @@ document.addEventListener("DOMContentLoaded", () => {
     // swiping functional
     function getRow(rowIndex) {
         return [
-            parseInt(tilesArray[4 * rowIndex].innerHTML),
-            parseInt(tilesArray[4 * rowIndex + 1].innerHTML),
-            parseInt(tilesArray[4 * rowIndex + 2].innerHTML),
-            parseInt(tilesArray[4 * rowIndex + 3].innerHTML)
+            numbersArray[4 * rowIndex],
+            numbersArray[4 * rowIndex + 1],
+            numbersArray[4 * rowIndex + 2],
+            numbersArray[4 * rowIndex + 3]
         ];
     }
 
     function setRow(rowIndex, newRow) {
-        tilesArray[4 * rowIndex].innerHTML = newRow[0];
-        tilesArray[4 * rowIndex + 1].innerHTML = newRow[1];
-        tilesArray[4 * rowIndex + 2].innerHTML = newRow[2];
-        tilesArray[4 * rowIndex + 3].innerHTML = newRow[3];
+        numbersArray[4 * rowIndex] = newRow[0];
+        numbersArray[4 * rowIndex + 1] = newRow[1];
+        numbersArray[4 * rowIndex + 2] = newRow[2];
+        numbersArray[4 * rowIndex + 3] = newRow[3];
     }
 
     function getColumn(columnIndex) {
         return [
-            parseInt(tilesArray[columnIndex].innerHTML),
-            parseInt(tilesArray[columnIndex + 4].innerHTML),
-            parseInt(tilesArray[columnIndex + 8].innerHTML),
-            parseInt(tilesArray[columnIndex + 12].innerHTML)
+            numbersArray[columnIndex],
+            numbersArray[columnIndex + 4],
+            numbersArray[columnIndex + 8],
+            numbersArray[columnIndex + 12]
         ];
     }
 
     function setColumn(columnIndex, newColumn) {
-        tilesArray[columnIndex].innerHTML = newColumn[0];
-        tilesArray[columnIndex + 4].innerHTML = newColumn[1];
-        tilesArray[columnIndex + 8].innerHTML = newColumn[2];
-        tilesArray[columnIndex + 12].innerHTML = newColumn[3];
+        numbersArray[columnIndex] = newColumn[0];
+        numbersArray[columnIndex + 4] = newColumn[1];
+        numbersArray[columnIndex + 8] = newColumn[2];
+        numbersArray[columnIndex + 12] = newColumn[3];
     }
 
     function directConcatenation(firstArray, secondArray) {
@@ -162,6 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
             fieldItem = concatFunction(nonZeroFieldItem, zeroFieldItem);
             setFunction(i, fieldItem);
         }
+        refreshGameTiles();
     }
 
     function swipeRight() {
