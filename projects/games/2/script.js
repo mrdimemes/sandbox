@@ -171,7 +171,6 @@ document.addEventListener("DOMContentLoaded", () => {
             fieldItem = concatFunction(nonZeroFieldItem, zeroFieldItem);
             setFunction(i, fieldItem);
         }
-        refreshGameTiles();
     }
 
     function swipeRight() {
@@ -188,6 +187,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function swipeDown() {
         swipe(getColumn, reverseCombineNumbers, reverseConcatenation, setColumn);
+    }
+
+    function isArraysEqual(arrayA, arrayB) {
+        if (arrayA.length != arrayB.length) {
+            return false;
+        }
+        for (let i = 0; i < arrayA.length; i++) {
+            if (arrayA[i] != arrayB[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function isNextSwipeAvailable() {
+        let numbersArrayCurrentState = numbersArray.slice();
+        let swipeFuncArray = [swipeLeft, swipeRight, swipeUp, swipeDown];
+        for (const swipeFunc of swipeFuncArray) {
+            swipeFunc();
+            if (!isArraysEqual(numbersArrayCurrentState, numbersArray)) {
+                numbersArray = numbersArrayCurrentState;
+                return true;
+            };
+        }
+        return false;
     }
 
     function processKeyboardInteraction(event) {
